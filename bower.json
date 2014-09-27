@@ -1,0 +1,23 @@
+{
+  "name": "ng-eocities",
+  "version": "0.0.0",
+  "homepage": "https://github.com/KatzInHatz/ng-eocities",
+  "authors": [
+    "(Aaron Ward <aaromp@gmail.com>)"
+  ],
+  "description": "Let's party like it's 1999!",
+  "keywords": [
+    "geocities",
+    "directives",
+    "style",
+    "design"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
