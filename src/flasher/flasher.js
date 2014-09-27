@@ -1,37 +1,43 @@
 (function(angular){
   angular.module("ngEocities.flasher", [])
-  .directive("flasher", function($timeout){
-    return {
-      restrict: 'EA',
-      template: '<div><div ng-transclude></div></div>',
-      transclude: true,
-      scope: {
-        active: '='
-      },
-      link: function(scope, ele, attrs){
-        var current, selection, options;
-        
-        options = {
-          rainbow: ['red', 'orange', 'yellow', 'green', 'blue', 'purple'],
-          blackwhite: ['black', 'white']};
-        selection = options[attrs.colors];
-        current = 0;
+  /* @inject */
+  .directive("flasher", flasher);
 
-        scope.$watch('active', function(newValue, oldValue) {
-          scope.active = newValue;
-        });
+function flasher($timeout){
+  return {
+    restrict: 'EA',
+    template: '<div><div ng-transclude></div></div>',
+    transclude: true,
+    scope: {
+      active: '='
+    },
+    link: function(scope, ele, attrs){
+      var current, selection, options;
+      
+      scope.options = {
+        rainbow: ['red', 'orange', 'yellow', 'green', 'blue', 'purple'],
+        blackwhite: ['black', 'white']};
+      scope.selection = scope.options[attrs.colors];
+      scope.current = 0;
+      scope.flash = flash;
 
-        (function flash(){
-          $timeout(function(){
-            angular.element(ele).css('background-color', selection[current]);
-            if (scope.active){
-              current =  current < selection.length-1 ? current+1 : 0;
-            }
+      scope.$watch('active', function(newValue, oldValue) {
+        scope.active = newValue;
+        if (scope.active) scope.flash();
+      });
+
+      function flash(){
+        $timeout(function(){
+          angular.element(ele).css('background-color', scope.selection[scope.current]);
+          if (scope.active){
+            scope.current =  scope.current < scope.selection.length-1 ? scope.current+1 : 0;
             flash();
-          }, attrs.interval);
-        })();
+          }
+        }, attrs.interval);
       }
-    };
-  });
+    }
+  };
+}
+
 })(angular);
 
