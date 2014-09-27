@@ -6,30 +6,30 @@
       template: '<div><div ng-transclude></div></div>',
       transclude: true,
       scope: {
-        on: '@'
+        active: '='
       },
       link: function(scope, ele, attrs){
-        console.log('loaded directive');
-        //lets make a flashing rainbow background
-        var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-        var color = 0;
-        // ele = ele.children();
-        console.log(attrs);
-        scope.$watch('on', function(newValue, oldValue) {
-          console.log('watching the change');
-          scope.on = newValue;
+        var current, selection, options;
+        
+        options = {
+          rainbow: ['red', 'orange', 'yellow', 'green', 'blue', 'purple'],
+          blackwhite: ['black', 'white']};
+        selection = options[attrs.colors];
+        current = 0;
+
+        scope.$watch('active', function(newValue, oldValue) {
+          scope.active = newValue;
         });
-        var rainbow = function(){
+
+        (function flash(){
           $timeout(function(){
-            angular.element(ele).css('background-color', colors[color]);
-            color = color < colors.length-1 ? color+1 : 0;
-            !scope.on || rainbow();
-            console.log('scope.on is: '+scope.on);
+            angular.element(ele).css('background-color', selection[current]);
+            if (scope.active){
+              current =  current < selection.length-1 ? current+1 : 0;
+            }
+            flash();
           }, attrs.interval);
-        };
-
-        rainbow();
-
+        })();
       }
     };
   });
