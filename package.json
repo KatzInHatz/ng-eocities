@@ -1,0 +1,25 @@
+{
+  "name": "ng-eocities",
+  "version": "0.0.0",
+  "description": "Let's party like it's 1999!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KatzInHatz/ng-eocities.git"
+  },
+  "keywords": [
+    "geocities",
+    "styles",
+    "directives",
+    "design"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KatzInHatz/ng-eocities/issues"
+  },
+  "homepage": "https://github.com/KatzInHatz/ng-eocities"
+}
