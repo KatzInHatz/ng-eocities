@@ -2,12 +2,14 @@
   <head>
   <script src= '../bower_components/angular/angular.js'></script>
   <script src= '../src/flash/test_directive.js'></script>
+  <script src= '../src/pixelated-img/pixelated-img-directive.js'></script>
   <script src= '../src/ngEocities.js'></script>
   </head>
   <body style="margin:0; height:100px" ng-app="ngEocities" flasher interval='50' on='true'>
     <div>
       This is a marquee test
     </div>
+    <pixelated-img src="https://dl-web.dropbox.com/get/Photos/Sample%20Album/Pensive%20Parakeet.jpg?_subject_uid=160015749&w=AAAn-7KFJqJOB9I3pL0qqlddzJ8et5N7aIaRgf8VO9Shew" pixelation='5'></pixelated-img>
 <!--     <flash 
       interval='100'
      >
