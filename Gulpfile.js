@@ -13,7 +13,12 @@ var paths = {
   dist: './dist/'
 };
 
-gulp.task('lint', function(){});
+gulp.task('lint', function(){
+  return gulp.src(paths.source)
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.notify({message: 'Linting Done'}));
+});
 
 gulp.task('concat', function(){
   return gulp.src(paths.scripts)
@@ -42,19 +47,8 @@ gulp.task('uglify', ['preMin'], function(){
     .pipe($.notify({message: 'Build Done'}));
 });
 
-gulp.task('build', ['concat', 'uglify']);
-
+gulp.task('build', ['lint', 'concat', 'uglify']);
+gulp.task('default', ['build', 'watch']);
 gulp.task('watch', function(){
   gulp.watch(paths.source, ['build']);
 });
-
-gulp.task('default', ['build', 'watch']);
-//install gulp-load-plugins
-//make default task
-  //call concat task
-    //select source files
-    //.pipe($.concat("filename.js" //name of file with concat resources))
-    //.pipe(gulp.dest(<destination folder>))
-
-
-  //gulp-inject -- this is so dope
