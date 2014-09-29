@@ -24,6 +24,11 @@
   "homepage": "https://github.com/KatzInHatz/ng-eocities",
   "devDependencies": {
     "gulp": "^3.8.8",
-    "gulp-concat": "^2.4.1"
+    "gulp-concat": "^2.4.1",
+    "gulp-inject": "^1.0.2",
+    "gulp-jshint": "^1.8.5",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-ng-annotate": "^0.3.3",
+    "gulp-uglify": "^1.0.1"
   }
 }
