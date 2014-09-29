@@ -31,7 +31,7 @@ gulp.task('preMin', ['minify'], function(){
   return gulp.src('./dist/ngEocities.min.js')
     .pipe($.ngAnnotate())
     .pipe(gulp.dest(paths.dist))
-    .pipe(notify({message: 'Min done'}));
+    .pipe($.notify({message: 'Min done'}));
 
 });
 
@@ -39,7 +39,7 @@ gulp.task('uglify', ['preMin'], function(){
   return gulp.src('./dist/ngEocities.min.js')
     .pipe($.uglify())
     .pipe(gulp.dest(paths.dist))
-    .pipe(notify({message: 'Build Done'}));
+    .pipe($.notify({message: 'Build Done'}));
 });
 
 gulp.task('build', ['concat', 'uglify']);
