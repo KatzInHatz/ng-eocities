@@ -1,7 +1,7 @@
 (function(angular){
 'use strict';
 
-angular.module('myApp.ng-eocities.pixelated-img-directive', [])
+angular.module('ngEocities.pixelated-img-directive', [])
 
 .directive('pixelatedImg', ['$document', function($document) {
   return {

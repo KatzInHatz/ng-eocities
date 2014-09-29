@@ -1,12 +1,15 @@
-<doctype! html style="margin:0; height:100%">
+<!DOCTYPE html> 
+<html ng-app="myApp">
   <head>
   <script src= '../bower_components/angular/angular.js'></script>
-  <script src= '../src/flash/test_directive.js'></script>
+  <script src= '../src/flasher/flasher.js'></script>
   <script src= '../src/pixelated-img/pixelated-img-directive.js'></script>
   <script src= '../src/ngEocities.js'></script>
+  <script src= './app.js'></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
-  <body style="margin:0; height:100px" ng-app="ngEocities" flasher interval='50' on='true'>
-    <div>
+  <body ng-controller="myController">
+    <div id="container" flasher colors="rainbow" active='true' interval='500'>
       This is a marquee test
     </div>
     <pixelated-img src="https://dl-web.dropbox.com/get/Photos/Sample%20Album/Pensive%20Parakeet.jpg?_subject_uid=160015749&w=AAAn-7KFJqJOB9I3pL0qqlddzJ8et5N7aIaRgf8VO9Shew" pixelation='5'></pixelated-img>
@@ -21,19 +24,3 @@
 
 
 
-<!--     <flash 
-    behavior="scroll"
-    bgcolor="red"
-    direction="right"
-    height="200"
-    hspace="100"
-    loop="-1"
-    truespeed
-    scrolldelay
-    scrollamount
-    vspace="100"
-    width
-    >
-      <p>Hello World</p>
-      <p>Hello Moto</p>
-    </flash> -->
