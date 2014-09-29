@@ -9,16 +9,17 @@
   <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   <body ng-controller="myController">
-    <div id="container" flasher colors="rainbow" active='true' interval='500'>
-      This is a marquee test
+    <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
+      <p>You are visitor 1,000,000</p>
     </div>
-    <pixelated-img src="https://dl-web.dropbox.com/get/Photos/Sample%20Album/Pensive%20Parakeet.jpg?_subject_uid=160015749&w=AAAn-7KFJqJOB9I3pL0qqlddzJ8et5N7aIaRgf8VO9Shew" pixelation='5'></pixelated-img>
-<!--     <flash 
-      interval='100'
-     >
-      <p>Hello World</p>
-      <p>Hello Moto</p>
-    </flash> -->
+    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='100'>
+      <p>You are visitor 1,000,000</p>
+    </div>
+<!--     <div class="flash" flasher colors="rainbow" active='true' interval='100'>
+    </div>
+    <div class="flash" flasher colors="rainbow" active='true' interval='50'>
+    </div> -->
+    <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='5'></pixelated-img>
   </body>
 </html>
 
