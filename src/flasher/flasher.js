@@ -1,8 +1,8 @@
 (function(angular){
-  angular.module("ngEocities.flasher", [])
-  /* @inject */
-  .directive("flasher", flasher);
+  angular.module('ngEocities.flasher', [])
+  .directive('flasher', flasher);
 
+  /*@inject*/
   function flasher($timeout){
     return {
       restrict: 'EA',
