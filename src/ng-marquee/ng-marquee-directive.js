@@ -19,7 +19,7 @@
   
       // div.style.width = scope.width;
   
-      wrapper.style.backgroundColor = 'pink';
+      // wrapper.style.backgroundColor = 'pink';
       wrapper.style.display = 'block';
       wrapper.style.width = scope.width;
       wrapper.style.whiteSpace = 'nowrap';
