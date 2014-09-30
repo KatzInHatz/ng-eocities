@@ -12,31 +12,21 @@
   
     function link(scope, element, attrs) {
       var text, div, wrapper, marquee, direction;
-  
-      // div = document.createElement('div');
-      wrapper = document.createElement('div');
-      marquee = document.createElement('span');
-  
-      // div.style.width = scope.width;
-  
-      // wrapper.style.backgroundColor = 'pink';
-      wrapper.style.display = 'block';
-      wrapper.style.width = scope.width;
-      wrapper.style.whiteSpace = 'nowrap';
-      wrapper.style.overflow = 'hidden';
-  
-      marquee.style.display = 'inline-block';
-      marquee.style.whiteSpace = 'nowrap';
-      marquee.style.paddingLeft = '100%';
-      marquee.style.fontSize = '200px';
-  
-      marquee.innerHTML = element.text();
-      element.text('');
-      angular.element(element).css('display', 'block');
-  
-      wrapper.appendChild(marquee);
-      element.append(wrapper);
-  
+
+      angular.element(element).parent().css({
+        // 'background-color': 'pink',
+        'display': 'block',
+        'width': scope.width,
+        'white-space': 'nowrap',
+        'overflow': 'hidden'
+      });
+
+      angular.element(element).css({
+        'display': 'inline-block',
+        'white-space': 'nowrap',
+        'padding-left': '100%',
+      });
+
       direction = scope.reverse === 'true' ? '' : '-';
   
       // 60 frames per second
@@ -46,14 +36,14 @@
       var percentage;
   
       function loop() {
-        marquee.style.transform = getTransformString(direction, 0);
+        angular.element(element).css('transform', getTransformString(direction, 0));
         frames = 0;
         percentage = 0;
   
         $timeout(function animate() {
           frames++;
           percentage = (frames / totalFrames) * 100;
-          marquee.style.transform = getTransformString(direction, percentage);
+          angular.element(element).css('transform', getTransformString(direction, percentage));
           if (percentage < 100) {
             $timeout(animate, timeframe);
           } else {
@@ -67,6 +57,8 @@
   
     return {
       restrict: 'EA',
+      template: '<div><div ng-transclude></div></div>',
+      transclude: true,
       scope: {
         width: '@',
         duration: '@',
