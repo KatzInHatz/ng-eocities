@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngEocities']);
+var app = angular.module('myApp', ['ngEocities', 'firebase']);
 
 app.controller('myController', function($scope, $timeout){
   // $scope.active = true;
