@@ -13,6 +13,12 @@
     <script src= '/pixelated-img/pixelated-img-directive.js'></script>
     <script src= '/figlet/figlet.js'></script>
     <script src= '/ngEocities.js'></script>
+    <script src= '../src/counter/counter-directive.js'></script>
+    <script src= '../src/ng-marquee/ng-marquee-directive.js'></script>
+    <script src= '../src/flasher/flasher.js'></script>
+    <script src= '../src/pixelated-img/pixelated-img-directive.js'></script>
+    <script src= '../src/figlet/figlet.js'></script>
+    <script src= '../src/ngEocities.js'></script>
 
     <!-- Demo App -->
     <script src= './app.js'></script>
@@ -22,17 +28,45 @@
   </head>
   <body ng-controller="myController">
 
+
     <!-- Flash Directive -->
     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
       <pre figlet font='alligator' href="/figlet/fonts/">You're</pre>
       <pre figlet font='alligator' href="/figlet/fonts/">the </pre>
       <pre figlet font='alligator' href="/figlet/fonts/">best</pre>
     </div>
+    
+    <div counter src="https://ng-eocities.firebaseio.com/"></div>
 
     <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='500px' align='center' duration='1500' reverse='false'>
+      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
+        <!-- Katz in Hatz -->
+        <pre figlet font='isometric1' href="../src/figlet/fonts/">Katz in Hatz</pre>
+      </div>
+    </div>
+    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
+      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
+        <!-- Katz in Hatz -->
+        <pre figlet font='isometric2' href="../src/figlet/fonts/">Katz in Hatz</pre>
+      </div>
+    </div>
+    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
+      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
+        <!-- Katz in Hatz -->
+        <pre figlet font='isometric3' href="../src/figlet/fonts/">Katz in Hatz</pre>
+      </div>
+    </div>
+    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
+      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
+        <!-- Katz in Hatz -->
+        <pre figlet font='isometric4' href="../src/figlet/fonts/">Katz in Hatz</pre>
+      </div>
+    </div>
+    <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
+      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
         <!-- Katz in Hatz -->
         <pre figlet font='banner' href="./figlet/fonts/">Katz in Hatz</pre>
+        <pre figlet font='doh' href="../src/figlet/fonts/">Katz in Hatz</pre>
       </div>
     </div>
 
