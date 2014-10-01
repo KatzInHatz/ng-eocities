@@ -1,5 +1,6 @@
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
+var gulp   = require('gulp');
+    $      = require('gulp-load-plugins')();
+    server = require('./demoApp/server.js');
 
 var paths = {
   scripts: [
@@ -10,14 +11,18 @@ var paths = {
     './src/**/*.js',
     './src/ngEocities.js'
   ],
-  dist: './dist/'
+  dist: './dist/', 
+  demo: {
+    index: './demoApp/index.html'
+  }
 };
 
 gulp.task('lint', function(){
   return gulp.src(paths.source)
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.notify({message: 'Linting Done'}));
+    .pipe($.notify({message: 'Linting Done'}))
+    .pipe($.livereload());
 });
 
 gulp.task('concat', function(){
@@ -47,8 +52,16 @@ gulp.task('uglify', ['preMin'], function(){
     .pipe($.notify({message: 'Build Done'}));
 });
 
+gulp.task('watch', function(){
+  gulp.watch(paths.source, ['lint'], $.livereload.changed);
+  gulp.watch(paths.demo.index, $.livereload.changed);
+});
+
+//run server for demo app and watch files
+gulp.task('serve', ['watch'], function(){
+  server.run();
+});
+
+
 gulp.task('build', ['lint', 'concat', 'uglify']);
 gulp.task('default', ['build', 'watch']);
-gulp.task('watch', function(){
-  gulp.watch(paths.source, ['build']);
-});
