@@ -5,7 +5,9 @@
     'ngEocities.flasher',
     'ngEocities.pixelated-img-directive',
     'ngEocities.figlet',
-    'ngEocities.marquee-directive'
+    'ngEocities.marquee-directive',
+    'ngEocities.counter',
+    'firebase'
   ]);
-})(angular);
+}(angular));
 

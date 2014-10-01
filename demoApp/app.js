@@ -1,4 +1,8 @@
-var app = angular.module('myApp', ['ngEocities']);
+var app = angular.module('myApp', ['ngEocities', 'firebase']);
+
+app.config(function(counterProvider) {
+  counterProvider.setFirebaseURL('https://ng-eocities.firebaseio.com/');
+});
 
 app.controller('myController', function($scope, $timeout){
   // $scope.active = true;
