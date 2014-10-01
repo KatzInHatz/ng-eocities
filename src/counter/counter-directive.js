@@ -1,7 +1,7 @@
 (function(angular){
   'use strict';
   
-  angular.module('ngEocities.counter', [])
+  angular.module('ngEocities.counter-directive', [])
   
   .directive('counter', function($firebase, counter) {
     function link(scope, element, attrs) {

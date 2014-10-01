@@ -3,7 +3,6 @@
   <head>
     <!-- Dependencies -->
     <script src= '/angular/angular.js'></script>
-    <script src= '../bower_components/angular/angular.js'></script>
     <script src= 'https://cdn.firebase.com/js/client/1.0.21/firebase.js'></script>
     <script src= 'https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js'></script>
 
@@ -12,13 +11,11 @@
     <script src= '/flasher/flasher.js'></script>
     <script src= '/pixelated-img/pixelated-img-directive.js'></script>
     <script src= '/figlet/figlet.js'></script>
+    <script src= '/counter/counter.js'></script>
+    <script src= '/counter/counter-provider.js'></script>
+    <script src= '/counter/counter-directive.js'></script>
     <script src= '/ngEocities.js'></script>
-    <script src= '../src/ngEocities.js'></script>
-    <script src= '../src/counter/counter-directive.js'></script>
-    <script src= '../src/ng-marquee/ng-marquee-directive.js'></script>
-    <script src= '../src/flasher/flasher.js'></script>
-    <script src= '../src/pixelated-img/pixelated-img-directive.js'></script>
-    <script src= '../src/figlet/figlet.js'></script>
+
 
     <!-- Demo App -->
     <script src= './app.js'></script>
@@ -34,47 +31,22 @@
       <pre figlet font='alligator' href="/figlet/fonts/">You're</pre>
       <pre figlet font='alligator' href="/figlet/fonts/">the </pre>
       <pre figlet font='alligator' href="/figlet/fonts/">best</pre>
-      <div counter src="https://ng-eocities.firebaseio.com/"></div>
-    </div>
-
-    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
-        <!-- Katz in Hatz -->
-        <pre figlet font='isometric1' href="../src/figlet/fonts/">Katz in Hatz</pre>
-      </div>
     </div>
     <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
-        <!-- Katz in Hatz -->
-        <pre figlet font='isometric2' href="../src/figlet/fonts/">Katz in Hatz</pre>
-      </div>
+      <div counter></div>
     </div>
-    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
-        <!-- Katz in Hatz -->
-        <pre figlet font='isometric3' href="../src/figlet/fonts/">Katz in Hatz</pre>
-      </div>
-    </div>
-    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
-        <!-- Katz in Hatz -->
-        <pre figlet font='isometric4' href="../src/figlet/fonts/">Katz in Hatz</pre>
-      </div>
-    </div>
-    <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='500px' align='center' duration='7000' reverse='false'>
-        <!-- Katz in Hatz -->
-        <pre figlet font='banner' href="./figlet/fonts/">Katz in Hatz</pre>
-        <pre figlet font='doh' href="../src/figlet/fonts/">Katz in Hatz</pre>
-      </div>
-    </div>
-
 
     <!-- Pixelated-Img Directive -->
     <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='5'></pixelated-img>
 
     <!-- Figlet Directive -->
     <pre figlet font='banner' href="/figlet/fonts/">Figlet Directive</pre>
+
+    <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
+      <div ng-marquee width='1000px' align='center' duration='7000' reverse='false'>
+        <div counter></div>
+      </div>
+    </div>
   </body>
 </html>
 
