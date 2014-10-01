@@ -13,14 +13,19 @@
     };
 
     this.$get = function($firebase) {
-      var visitorRef, sync;
-      visitorRef = new Firebase(firebaseURL);
+      var getFirebaseObject = function() {
+        var visitorRef, sync;
+
+        visitorRef = new Firebase(firebaseURL);
       
-      // create an AngularFire reference to the data
-      sync = $firebase(visitorRef);
-      
-      // download the count into a local object
-      syncObject = sync.$asObject();
+        // create an AngularFire reference to the data
+        sync = $firebase(visitorRef);
+        
+        // download the count into a local object
+        return sync.$asObject();
+      };
+
+      syncObject = getFirebaseObject();
 
       // on load, increment the count and save the result
       syncObject.$loaded().then(function(){
@@ -28,7 +33,9 @@
         syncObject.$save();
       });
 
-      return syncObject;
+      return {
+        'getFirebaseObject': getFirebaseObject
+      };
     };
   });
 }(angular));

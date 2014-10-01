@@ -5,7 +5,7 @@
   
   .directive('counter', function($firebase, counter) {
     function link(scope, element, attrs) {
-      counter.$bindTo(scope, 'visitor');
+      counter.getFirebaseObject().$bindTo(scope, 'visitor');
     }
   
     return {
