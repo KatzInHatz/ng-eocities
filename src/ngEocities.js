@@ -42,10 +42,6 @@
     };
   })
 
-  .config(function(counterProvider) {
-    counterProvider.setFirebaseURL('https://ng-eocities.firebaseio.com/');
-  })
-
   .run(function(counter) {
     counter();
   });
