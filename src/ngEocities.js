@@ -19,31 +19,24 @@
       }
     };
 
-    this.getSyncObject = function() {
-      return syncObject;
-    };
-
     this.$get = function($firebase) {
-      return function() {
-        var visitorRef = new Firebase(firebaseURL);
+      var visitorRef, sync;
+      visitorRef = new Firebase(firebaseURL);
       
-        // create an AngularFire reference to the data
-        var sync = $firebase(visitorRef);
+      // create an AngularFire reference to the data
+      sync = $firebase(visitorRef);
       
-        // // download the count into a local object
-        syncObject = sync.$asObject();
-        syncObject.$loaded().then(function(){
-          syncObject.count++;
-          syncObject.$save();
-          console.log(syncObject.count);
-        });
-        // 
-      };    
-    };
-  })
+      // download the count into a local object
+      syncObject = sync.$asObject();
 
-  .run(function(counter) {
-    counter();
+      // on load, increment the count and save the result
+      syncObject.$loaded().then(function(){
+        syncObject.count++;
+        syncObject.$save();
+      });
+
+      return syncObject; 
+    };
   });
 }(angular));
 

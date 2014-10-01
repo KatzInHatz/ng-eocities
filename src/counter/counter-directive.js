@@ -1,27 +1,11 @@
 (function(angular){
   'use strict';
   
-  angular.module('ngEocities.counter', ['firebase'])
+  angular.module('ngEocities.counter', [])
   
-  .directive('counter', function($firebase) {
+  .directive('counter', function($firebase, counter) {
     function link(scope, element, attrs) {
-
-      var visitorRef = new Firebase(attrs.src);
-
-      // // create an AngularFire reference to the data
-      var sync = $firebase(visitorRef);
-
-      // // download the count into a local object
-      var syncObject = sync.$asObject();
-
-      // // synchronize the object with a three-way data binding
-      // // click on `index.html` above to see it used in the DOM!
-      syncObject.$bindTo(scope, 'visitor');
-      // scope.count = scope.data.count;
-
-      element.on('click', function() {
-        scope.visitor.count++;
-      });
+      counter.$bindTo(scope, 'visitor');
     }
   
     return {
@@ -29,7 +13,6 @@
       template: '<div>You are visitor {{visitor.count}}</div>',
       scope: {
       },
-      // controller: countCtrl,
       link: link
     };
   });
