@@ -1,6 +1,7 @@
 var gulp   = require('gulp');
     $      = require('gulp-load-plugins')();
     server = require('./demoApp/server.js');
+var stylus = require('gulp-stylus');
 
 var paths = {
   scripts: [
@@ -11,11 +12,21 @@ var paths = {
     './src/**/*.js',
     './src/ngEocities.js'
   ],
+  styles: [
+    './src/**/*.styl'
+  ],
   dist: './dist/', 
   demo: {
     index: './demoApp/index.html'
   }
 };
+
+gulp.task('styles', function() {
+  gulp.src(paths.styles)
+    .pipe(stylus())
+    .pipe($.concat('ng-eocities.css'))
+    .pipe(gulp.dest('./demoApp'));
+});
 
 gulp.task('lint', function(){
   return gulp.src(paths.source)
@@ -54,6 +65,7 @@ gulp.task('uglify', ['preMin'], function(){
 
 gulp.task('watch', function(){
   gulp.watch(paths.source, ['lint'], $.livereload.changed);
+  gulp.watch(paths.styles, ['styles'], $.livereload.changed);
   gulp.watch(paths.demo.index, $.livereload.changed);
 });
 
