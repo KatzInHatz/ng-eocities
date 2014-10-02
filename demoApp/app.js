@@ -1,7 +1,8 @@
 var app = angular.module('myApp', ['ngEocities', 'firebase']);
 
-app.config(function(counterProvider) {
+app.config(function(counterProvider, figlifyProvider) {
   counterProvider.setFirebaseURL('https://ng-eocities.firebaseio.com/');
+  figlifyProvider.setFontsRoute('/figlet/fonts/');
 });
 
 app.controller('myController', function($scope, $timeout){
