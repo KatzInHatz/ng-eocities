@@ -3,34 +3,18 @@ var gulp   = require('gulp');
     server = require('./demoApp/server.js');
     // open   = require('gulp-open ');
 var stylus = require('gulp-stylus');
+var paths  = require('./build.config.js');
 
-var paths = {
-  scripts: [
-    './src/**/*.js',
-    './src/ngEocities.js'
-  ],
-  source: [
-    './src/**/*.js',
-    './src/ngEocities.js'
-  ],
-  styles: [
-    './src/**/*.styl'
-  ],
-  dist: './dist/', 
-  demo: {
-    index: './demoApp/index.html'
-  }
-};
 
 gulp.task('styles', function() {
-  gulp.src(paths.styles)
+  gulp.src(paths.app_files.styles)
     .pipe(stylus())
     .pipe($.concat('ng-eocities.css'))
-    .pipe(gulp.dest('./demoApp'));
+    .pipe(gulp.dest(paths.demo.dir));
 });
 
 gulp.task('lint', function(){
-  return gulp.src(paths.source)
+  return gulp.src(paths.app_files.js)
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.notify({message: 'Linting Done'}))
@@ -38,13 +22,13 @@ gulp.task('lint', function(){
 });
 
 gulp.task('concat', function(){
-  return gulp.src(paths.scripts)
+  return gulp.src(paths.app_files.js)
     .pipe($.concat('ngEocities.js'))
     .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('minify', function(){
-  return gulp.src(paths.scripts)
+  return gulp.src(paths.app_files.js)
     .pipe($.concat('ngEocities.min.js'))
     .pipe(gulp.dest(paths.dist));
 });
