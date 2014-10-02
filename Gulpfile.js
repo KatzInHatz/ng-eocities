@@ -1,6 +1,7 @@
 var gulp   = require('gulp');
     $      = require('gulp-load-plugins')();
     server = require('./demoApp/server.js');
+    // open   = require('gulp-open ');
 var stylus = require('gulp-stylus');
 
 var paths = {
@@ -70,8 +71,16 @@ gulp.task('watch', function(){
 });
 
 //run server for demo app and watch files
-gulp.task('serve', ['watch'], function(){
+gulp.task('server', ['watch'], function(){
   server.run();
+});
+
+gulp.task('serve', ['server'], function(){
+  var options = {
+    url: 'http://localhost:9000',
+  };
+  gulp.src('./demoApp/index.html')
+    .pipe($.open('', options));
 });
 
 
