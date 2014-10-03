@@ -1,9 +1,9 @@
 (function(angular){
   'use strict';
   
-  angular.module('ngEocities.marquee-directive', [])
+  angular.module('ngEocities.marquee')
   
-  .directive('ngMarquee', ['$timeout', function($timeout) {
+  .directive('marquee', ['$timeout', function($timeout) {
     function getTransformString(sign, percentage) {
       if (sign === '') sign = -100;
       percentage = percentage === 0 ? percentage : sign + percentage + '%';
