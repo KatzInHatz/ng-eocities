@@ -5,16 +5,18 @@ module.exports = {
 
   demo: {
     dir: 'demoApp',
-    index: 'demoApp/index.html'
+    index: 'demoApp/index.html',
+    styles: 'demoApp/*.css'
   },
 
   app_files: {
     js: [
+      'src/**/*.module.js',
       'src/**/*.js',
       '!src/**/*.spec.js',
       'src/ngEocities.js'
       ],
-    jsunit: ['./src/**/*.spec.js'],
+    jsunit: ['src/**/*.spec.js'],
     
     styles: [
       'src/**/*.styl'

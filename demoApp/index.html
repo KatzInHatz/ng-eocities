@@ -7,24 +7,30 @@
     <script src= 'https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js'></script>
 
     <!-- ngEocities Source Files -->
-    <script src= '/ng-marquee/ng-marquee-directive.js'></script>
-    <script src= '/flasher/flasher.js'></script>
-    <script src= '/pixelated-img/pixelated-img-directive.js'></script>
-    <script src= '/figlet/figlet.js'></script>
-    <script src= '/figlet/figlify-provider.js'></script>
-    <script src= '/figlet/figlet-directive.js'></script>
-    <script src= '/counter/counter.js'></script>
-    <script src= '/counter/counter-provider.js'></script>
-    <script src= '/counter/counter-directive.js'></script>
-    <script src= '/ngEocities.js'></script>
-
+    <!-- scripts:js -->
+    <script src="/counter/counter.module.js"></script>
+    <script src="/figlet/figlet.module.js"></script>
+    <script src="/flasher/flasher.module.js"></script>
+    <script src="/marquee/marquee.module.js"></script>
+    <script src="/pixelated-img/pixelated-img.module.js"></script>
+    <script src="/ngEocities.js"></script>
+    <script src="/counter/counter.directive.js"></script>
+    <script src="/counter/counter.provider.js"></script>
+    <script src="/figlet/figlet.directive.js"></script>
+    <script src="/figlet/figlify.provider.js"></script>
+    <script src="/flasher/flasher.directive.js"></script>
+    <script src="/marquee/marquee.directive.js"></script>
+    <script src="/pixelated-img/pixelated-img.directive.js"></script>
+    <!-- endinject -->
 
     <!-- Demo App -->
     <script src= './app.js'></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <link rel="stylesheet" type="text/css" href="./ng-eocities.css">
+    <!-- styles:css -->
+    <link rel="stylesheet" href="ng-eocities.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- endinject -->
+
   </head>
   <body ng-controller="myController">
 
@@ -46,7 +52,7 @@
     <pre figlet font='banner'>Katz in Hatz</pre>
 
     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
-      <div ng-marquee width='1000px' align='center' duration='7000' reverse='false'>
+      <div marquee width='1000px' align='center' duration='7000' reverse='false'>
         <div counter></div>
       </div>
     </div>
