@@ -48,6 +48,33 @@ gulp.task('uglify', ['preMin'], function(){
     .pipe($.notify({message: 'Build Done'}));
 });
 
+gulp.task('inject', function(){
+  //sources
+  var scripts = gulp.src(paths.app_files.js, {read:false});
+  var styles  = gulp.src(paths.demo.styles, {read:false});
+
+  //target
+  var target  = gulp.src(paths.demo.index);
+
+  return target
+  //inject js
+  .pipe($.inject(scripts, {
+    addRootSlash: true,
+    ignorePath: 'src',
+    name:'scripts',
+    relative: false,
+  }))
+
+  //inject css
+  .pipe($.inject(styles, {
+    addRootSlash: false,
+    relative: true,
+    name: 'styles'
+  }))
+
+  .pipe(gulp.dest(paths.demo.dir));
+});
+
 gulp.task('watch', function(){
   gulp.watch(paths.source, ['lint'], $.livereload.changed);
   gulp.watch(paths.styles, ['styles'], $.livereload.changed);
@@ -55,7 +82,7 @@ gulp.task('watch', function(){
 });
 
 //run server for demo app and watch files
-gulp.task('server', ['watch'], function(){
+gulp.task('server', ['inject', 'watch'], function(){
   server.run();
 });
 

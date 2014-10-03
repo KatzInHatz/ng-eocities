@@ -1,30 +1,31 @@
 (function(angular){
-  angular.module('ngEocities.figlet', [])
-  .directive('figlet', figlet);
+  'use strict'; 
 
-  /*@inject*/
-  function figlet($http){
-    return {
-      restrict: 'EA',
-      scope: {},
-      link: function(scope, ele, attrs){
-        scope.parseFont = parseFont;
-        scope._parseFont = _parseFont;
-        scope.parseChar = parseChar;
-        scope.write = write;
-        scope.loadFont = loadFont;
-        scope.fonts = {};
-        scope.font = attrs.font || "standard";
-        scope.fontPath = attrs.href;
+  angular.module('ngEocities.figlet')
+    .provider('figlify', figlifyProvider);
 
-        scope.write(ele.text(), scope.font, function(str){
-          ele.text(str);
-        });
+    function figlifyProvider(){
+      var fontsURL, fonts = {};
+
+      this.setFontsRoute = function(url){
+        fontsURL = url;
+      };
+
+      /*@inject*/
+      this.$get = function($http){
+        return {
+          figlify: figlify
+        };
+
+        function figlify(text, font, callback){
+          console.log('inside figlify');
+          write(text, font, callback);
+        }
 
         function loadFont(name, fn){
           $http({
             method:'GET', 
-            url:scope.fontPath + name + '.flf'})
+            url:fontsURL + name + '.flf'})
             .success(fn)
             .error(function(data, status, headers, config){
               console.log('error fetching font');
@@ -32,13 +33,13 @@
         }
 
         function parseFont(name, fn) {
-          if (name in scope.fonts) {
+          if (name in fonts) {
             fn();
             return;
           }
           
-          scope.loadFont(name, function(defn) {
-            scope._parseFont(name, defn, fn);
+          loadFont(name, function(defn) {
+            _parseFont(name, defn, fn);
           });
         }
         
@@ -49,7 +50,7 @@
             height = +header[1],
             comments = +header[5];
           
-          scope.fonts[name] = {
+          fonts[name] = {
             defn: lines.slice(comments + 1),
             hardblank: hardblank,
             height: height,
@@ -59,7 +60,7 @@
         }
         
         function parseChar(char, font) {
-          var fontDefn = scope.fonts[font];
+          var fontDefn = fonts[font];
           if (char in fontDefn.char) {
             return fontDefn.char[char];
           }
@@ -77,11 +78,13 @@
         }
 
         function write(str, font, fn) {
-          scope.parseFont(font, function() {
+          parseFont(font, function() {
             var chars = [],
-              result = "";
+              result = "", 
+              height;
+
             for (var i = 0, len = str.length; i < len; i++) {
-              chars[i] = scope.parseChar(str.charCodeAt(i), font);
+              chars[i] = parseChar(str.charCodeAt(i), font);
             }
             for (i = 0, height = chars[0].length; i < height; i++) {
               for (var j = 0; j < len; j++) {
@@ -93,8 +96,6 @@
             fn(result);
           });
         }
-      }
-
-    };
-  }
+      };
+    }
 })(angular);

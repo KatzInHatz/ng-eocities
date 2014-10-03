@@ -1,5 +1,5 @@
 (function(angular){
-  angular.module('ngEocities.flasher', [])
+  angular.module('ngEocities.flasher')
   .directive('flasher', flasher);
 
   /*@inject*/
