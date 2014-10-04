@@ -11,12 +11,12 @@
     }
   
     function link(scope, element, attrs) {
-      var text, div, wrapper, marquee, direction;
+      var timeframe, totalFrames, frames, percentage;
 
       angular.element(element).parent().css({
-        // 'background-color': 'pink',
         'display': 'block',
-        'width': scope.width,
+        'width': attrs.width,
+        'height': attrs.height,
         'white-space': 'nowrap',
         'overflow': 'hidden'
       });
@@ -24,26 +24,22 @@
       angular.element(element).css({
         'display': 'inline-block',
         'white-space': 'nowrap',
-        'padding-left': '100%',
       });
 
-      direction = scope.reverse === 'true' ? '' : '-';
+      angular.element(element).css(padding[scope.direction], '100%');
   
-      // 60 frames per second
-      var timeframe = 1000 / 60;
-      var totalFrames = (scope.duration/1000) * 60;
-      var frames;
-      var percentage;
+      timeframe = 1000 / 60; // 60 frames per second
+      totalFrames = scope.duration / timeframe;
   
       function loop() {
-        angular.element(element).css('transform', getTransformString(direction, 0));
+        angular.element(element).css('transform', getTransformString(directions[scope.direction], 0));
         frames = 0;
         percentage = 0;
   
         $timeout(function animate() {
           frames++;
           percentage = (frames / totalFrames) * 100;
-          angular.element(element).css('transform', getTransformString(direction, percentage));
+          angular.element(element).css('transform', getTransformString(directions[scope.direction], percentage));
           if (percentage < 100) {
             $timeout(animate, timeframe);
           } else {
@@ -60,9 +56,8 @@
       template: '<div><div ng-transclude></div></div>',
       transclude: true,
       scope: {
-        width: '@',
         duration: '@',
-        reverse: '@'
+        direction: '@'
       },
       link: link
     };
