@@ -7,17 +7,11 @@
     function getTransformString(sign, percentage) {
       if (sign === '') sign = -100;
       percentage = percentage === 0 ? percentage : sign + percentage + '%';
-      return 'translate3d(' + percentage + ', 0, 0)';
+      return 'translate' + translate + '(' + percentage + ')';
     }
-
-    // function getTransformString(sign, percentage) {
-    //   if (sign === '') sign = -100;
-    //   percentage = percentage === 0 ? percentage : sign + percentage + '%';
-    //   return 'translate3d(0, ' + percentage + ', 0)';
-    // }
   
     function link(scope, element, attrs) {
-      var timeframe, totalFrames;
+      var distance, padding, sign, translate, timeframe, totalFrames;
 
       angular.element(element).parent().css({
         'display': 'block',
@@ -29,11 +23,24 @@
 
       angular.element(element).css({
         'display': 'inline-block',
-        // 'height': attrs.height,
         'white-space': 'nowrap',
       });
 
-      angular.element(element).css(padding[scope.direction], attrs.width);
+      // initialize default values
+      distance = '100%';
+      padding = 'padding-left';
+      translate = 'X';
+      sign = '-';
+
+      if (scope.direction === 'up' || scope.direction === 'down') {
+        distance = attrs.height;
+        padding = 'padding-top';
+        translate = 'Y';
+      }
+
+      if (scope.direction === 'right' || scope.direction === 'down') sign = '';
+
+      angular.element(element).css(padding, distance);
   
       timeframe = 1000 / 60; // 60 frames per second
       totalFrames = scope.duration / timeframe;
@@ -42,7 +49,7 @@
         var frames = 0;
   
         $timeout(function animate() {
-          angular.element(element).css('transform', getTransformString(directions[scope.direction], (frames / totalFrames) * 100));
+          angular.element(element).css('transform', getTransformString(sign, (frames / totalFrames) * 100, translate));
           ++frames <= totalFrames ? $timeout(animate, timeframe) : loop();
         }, timeframe);
       }
