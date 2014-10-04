@@ -29,17 +29,17 @@
 
       angular.element(element).css({
         'display': 'inline-block',
+        // 'height': attrs.height,
         'white-space': 'nowrap',
       });
 
-      angular.element(element).css(padding[scope.direction], '100%');
+      angular.element(element).css(padding[scope.direction], attrs.width);
   
       timeframe = 1000 / 60; // 60 frames per second
       totalFrames = scope.duration / timeframe;
   
       function loop() {
         var frames = 0;
-        var percentage = 0;
   
         $timeout(function animate() {
           angular.element(element).css('transform', getTransformString(directions[scope.direction], (frames / totalFrames) * 100));
