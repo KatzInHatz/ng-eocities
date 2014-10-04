@@ -11,7 +11,7 @@
     }
   
     function link(scope, element, attrs) {
-      var distance, padding, sign, translate, timeframe, totalFrames;
+      var distance, padding, sign, axis, fps, totalFrames;
 
       angular.element(element).parent().css({
         'display': 'block',
@@ -29,32 +29,36 @@
       // initialize default values
       distance = '100%';
       padding = 'padding-left';
-      translate = 'X';
+      axis = 'X';
       sign = '-';
 
       if (scope.direction === 'up' || scope.direction === 'down') {
         distance = attrs.height;
         padding = 'padding-top';
-        translate = 'Y';
+        axis = 'Y';
       }
 
-      if (scope.direction === 'right' || scope.direction === 'down') sign = '';
+      if (scope.direction === 'right' || scope.direction === 'down') sign = -100;
 
       angular.element(element).css(padding, distance);
   
-      timeframe = 1000 / 60; // 60 frames per second
-      totalFrames = scope.duration / timeframe;
+      fps = 1000 / 60; // 60 frames per second
+      totalFrames = scope.duration / fps;
   
-      function loop() {
-        var frames = 0;
+      function loop(fps, sign, axis) {
+        var frames, percentage;
+        frames = 0;
   
         $timeout(function animate() {
-          angular.element(element).css('transform', getTransformString(sign, (frames / totalFrames) * 100, translate));
-          ++frames <= totalFrames ? $timeout(animate, timeframe) : loop();
-        }, timeframe);
+          percentage = (frames / totalFrames) * 100;
+          angular.element(element).css({
+            'transform': 'translate' + axis + '(' + (sign + percentage) + '%)'
+          });
+          ++frames <= totalFrames ? $timeout(animate, fps) : loop(fps, sign, axis);
+        }, fps);
       }
       
-      loop();
+      loop(fps, sign, axis);
     }
   
     return {
