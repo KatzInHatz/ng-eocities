@@ -9,9 +9,15 @@
       percentage = percentage === 0 ? percentage : sign + percentage + '%';
       return 'translate3d(' + percentage + ', 0, 0)';
     }
+
+    // function getTransformString(sign, percentage) {
+    //   if (sign === '') sign = -100;
+    //   percentage = percentage === 0 ? percentage : sign + percentage + '%';
+    //   return 'translate3d(0, ' + percentage + ', 0)';
+    // }
   
     function link(scope, element, attrs) {
-      var timeframe, totalFrames, frames, percentage;
+      var timeframe, totalFrames;
 
       angular.element(element).parent().css({
         'display': 'block',
@@ -32,19 +38,12 @@
       totalFrames = scope.duration / timeframe;
   
       function loop() {
-        angular.element(element).css('transform', getTransformString(directions[scope.direction], 0));
-        frames = 0;
-        percentage = 0;
+        var frames = 0;
+        var percentage = 0;
   
         $timeout(function animate() {
-          frames++;
-          percentage = (frames / totalFrames) * 100;
-          angular.element(element).css('transform', getTransformString(directions[scope.direction], percentage));
-          if (percentage < 100) {
-            $timeout(animate, timeframe);
-          } else {
-            loop();
-          }
+          angular.element(element).css('transform', getTransformString(directions[scope.direction], (frames / totalFrames) * 100));
+          ++frames <= totalFrames ? $timeout(animate, timeframe) : loop();
         }, timeframe);
       }
       
