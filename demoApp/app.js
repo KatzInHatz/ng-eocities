@@ -16,3 +16,7 @@ app.controller('myController', function($scope, $timeout){
   //   }, 2500);
   // })();
 });
+
+app.run(function(sparkler) {
+  sparkler();
+});
