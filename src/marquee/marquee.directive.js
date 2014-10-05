@@ -4,11 +4,6 @@
   angular.module('ngEocities.marquee')
   
   .directive('marquee', ['$timeout', function($timeout) {
-    function getTransformString(sign, percentage) {
-      if (sign === '') sign = -100;
-      percentage = percentage === 0 ? percentage : sign + percentage + '%';
-      return 'translate' + translate + '(' + percentage + ')';
-    }
   
     function link(scope, element, attrs) {
       var distance, padding, origin, axis, fps, totalFrames;
