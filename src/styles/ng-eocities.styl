@@ -1,5 +1,6 @@
 scrollbarColor = pink
 scrollbarSize = 20px
+constructionColor = orange
 
 body, a, a:hover
   cursor url(http://cur.cursors-4u.net/nature/nat-10/nat924.cur), progress
@@ -20,3 +21,30 @@ body, a, a:hover
   height scrollbarSize
   background-color scrollbarColor
 
+.construction
+  display inline-block
+  position absolute
+  margin auto
+  background linear-gradient(
+    -45deg, 
+    yellow  25%, 
+    black 25%, 
+    black 50%, 
+    yellow  50%, yellow  75%, 
+    black 75%
+  )
+  background-size 100px 100px
+  text-align center
+  z-index -10
+
+.construction:after
+  content " "
+  display block
+  position absolute
+  top 0
+  bottom 0
+  margin auto
+  width 100%
+  height 80%
+  background yellow
+  z-index -9

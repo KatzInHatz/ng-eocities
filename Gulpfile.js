@@ -76,8 +76,8 @@ gulp.task('inject', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(paths.source, ['lint'], $.livereload.changed);
-  gulp.watch(paths.styles, ['styles'], $.livereload.changed);
+  gulp.watch(paths.app_files.js, ['lint'], $.livereload.changed);
+  gulp.watch(paths.app_files.styles, ['styles'], $.livereload.changed);
   gulp.watch(paths.demo.index, $.livereload.changed);
 });
 
