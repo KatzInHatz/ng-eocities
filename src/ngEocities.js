@@ -11,6 +11,7 @@
   ])
 
   .run(function() {
+    // http://sunshinestory96.blogspot.com/2011/07/tutorial-rainbow-sparkle-cursor.html
     var ox, oy, sdown;
     var hex = new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0");
     var r = 1;
