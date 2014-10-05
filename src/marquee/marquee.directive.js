@@ -4,19 +4,14 @@
   angular.module('ngEocities.marquee')
   
   .directive('marquee', ['$timeout', function($timeout) {
-    function getTransformString(sign, percentage) {
-      if (sign === '') sign = -100;
-      percentage = percentage === 0 ? percentage : sign + percentage + '%';
-      return 'translate3d(' + percentage + ', 0, 0)';
-    }
   
     function link(scope, element, attrs) {
-      var text, div, wrapper, marquee, direction;
+      var distance, padding, origin, axis, fps, totalFrames;
 
       angular.element(element).parent().css({
-        // 'background-color': 'pink',
         'display': 'block',
-        'width': scope.width,
+        'width': attrs.width,
+        'height': attrs.height,
         'white-space': 'nowrap',
         'overflow': 'hidden'
       });
@@ -24,35 +19,41 @@
       angular.element(element).css({
         'display': 'inline-block',
         'white-space': 'nowrap',
-        'padding-left': '100%',
       });
 
-      direction = scope.reverse === 'true' ? '' : '-';
+      // initialize default values
+      distance = '100%';
+      padding = 'padding-left';
+      axis = 'X';
+      origin = '-';
+
+      if (scope.direction === 'up' || scope.direction === 'down') {
+        distance = attrs.height;
+        padding = 'padding-top';
+        axis = 'Y';
+      }
+
+      if (scope.direction === 'right' || scope.direction === 'down') origin = -100;
+
+      angular.element(element).css(padding, distance);
   
-      // 60 frames per second
-      var timeframe = 1000 / 60;
-      var totalFrames = (scope.duration/1000) * 60;
-      var frames;
-      var percentage;
+      fps = 1000 / 60; // 60 frames per second
+      totalFrames = scope.duration / fps;
   
-      function loop() {
-        angular.element(element).css('transform', getTransformString(direction, 0));
+      function loop(fps, origin, axis) {
+        var frames, percentage;
         frames = 0;
-        percentage = 0;
   
         $timeout(function animate() {
-          frames++;
           percentage = (frames / totalFrames) * 100;
-          angular.element(element).css('transform', getTransformString(direction, percentage));
-          if (percentage < 100) {
-            $timeout(animate, timeframe);
-          } else {
-            loop();
-          }
-        }, timeframe);
+          angular.element(element).css({
+            'transform': 'translate' + axis + '(' + (origin + percentage) + '%)'
+          });
+          ++frames <= totalFrames ? $timeout(animate, fps) : loop(fps, origin, axis);
+        }, fps);
       }
       
-      loop();
+      loop(fps, origin, axis);
     }
   
     return {
@@ -60,9 +61,8 @@
       template: '<div><div ng-transclude></div></div>',
       transclude: true,
       scope: {
-        width: '@',
         duration: '@',
-        reverse: '@'
+        direction: '@'
       },
       link: link
     };

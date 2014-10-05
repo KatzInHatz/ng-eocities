@@ -13,6 +13,7 @@
     <script src="/flasher/flasher.module.js"></script>
     <script src="/marquee/marquee.module.js"></script>
     <script src="/pixelated-img/pixelated-img.module.js"></script>
+    <script src="/sparkler/sparkler.module.js"></script>
     <script src="/ngEocities.js"></script>
     <script src="/counter/counter.directive.js"></script>
     <script src="/counter/counter.provider.js"></script>
@@ -21,6 +22,7 @@
     <script src="/flasher/flasher.directive.js"></script>
     <script src="/marquee/marquee.directive.js"></script>
     <script src="/pixelated-img/pixelated-img.directive.js"></script>
+    <script src="/sparkler/sparkler.factory.js"></script>
     <!-- endinject -->
 
     <!-- Demo App -->
@@ -46,13 +48,13 @@
     </div>
 
     <!-- Pixelated-Img Directive -->
-    <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='5'></pixelated-img>
+    <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img>
 
     <!-- Figlet Directive -->
     <pre figlet font='banner'>Katz in Hatz</pre>
 
     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
-      <div marquee width='1000px' align='center' duration='7000' reverse='false'>
+      <div marquee width='1000px' align='center' duration='5000'>
         <div counter></div>
       </div>
     </div>
