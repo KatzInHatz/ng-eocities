@@ -5,16 +5,13 @@ app.config(function(counterProvider, figlifyProvider) {
   figlifyProvider.setFontsRoute('/figlet/fonts/');
 });
 
-app.controller('myController', function($scope, $timeout){
-  // $scope.active = true;
-  // console.log('inside mycontroller');
-  // (function activate(){
-  //   $timeout(function(){
-  //     $scope.active = !$scope.active;
-  //     console.log('scope.active set to: ', $scope.active);
-  //     activate();
-  //   }, 2500);
-  // })();
+app.controller('myController', function($scope, $timeout) {
+  $scope.link = 'http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg';
+  $scope.pixelation = 10;
+  $scope.action = function() {
+    $scope.link = 'http://www.inlander.com/imager/cat-friday-cats-in-hats/b/original/2199849/4740/hellokittycat.jpg';
+    console.log($scope.link);
+  };
 });
 
 app.run(function(sparkler) {

@@ -7,25 +7,32 @@ angular.module('ngEocities.pixelated-img')
   return {
     restrict: 'E',
     scope: {
-      src: '@',
+      src: '=',
       height: '@',
       width: '@',
-      pixelation: '='
+      pixelation: '@'
     },
     link: function(scope, element, attrs) {
       var canvas = document.createElement('canvas');
       var context = canvas.getContext('2d');
       var image = document.createElement('img');
 
-      image.onload = pixelate;
-      image.src = scope.src;
-      
-      function pixelate() {
+      image.onload = function() {
+        image.src = scope.src;
+        setDimensions();
+        pixelate();
+      };
+
+      function setDimensions() {
         // set dimensions
         image.width = scope.width || image.width;
         image.height = scope.height || image.height;
         canvas.width = image.width;
         canvas.height = image.height;
+      }
+      
+      function pixelate() {
+        image.src = scope.src;
 
         // scale by pixelation factor
         scope.pixelation = scope.pixelation || 10;
@@ -44,6 +51,8 @@ angular.module('ngEocities.pixelated-img')
         /// draw scaled image to fill canvas
         context.drawImage(canvas, 0, 0, w, h, 0, 0, image.width, image.height);
       }
+
+      scope.$watch('pixelation', pixelate);
 
       element.append(canvas); 
     }
