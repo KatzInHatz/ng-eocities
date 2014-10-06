@@ -3,6 +3,7 @@ var gulp   = require('gulp');
     server = require('./demoApp/server.js');
     stylus = require('gulp-stylus');
     paths  = require('./build.config.js');
+    karma = require('karma').server;
 
 
 gulp.task('styles', function() {
@@ -93,6 +94,18 @@ gulp.task('serve', ['server'], function(){
     .pipe($.open('', options));
 });
 
+gulp.task('test', function(done){
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
+});
+
+gulp.task('tdd', function(done){
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+  }, done);
+});
 
 gulp.task('build', ['lint', 'concat', 'uglify']);
 gulp.task('default', ['build', 'watch']);
