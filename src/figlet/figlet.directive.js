@@ -6,12 +6,26 @@
   function figlet($http, figlify){
     return {
       restrict: 'EA',
-      scope: {},
-      link: function(scope, ele, attrs){
-        scope.font = attrs.font || "standard";
+      template: '<pre>{{fig}}</pre>',
+      // transclude: true,
+      scope: {
+        text: '@',
+        font: '@'
+      },
+      link: function(scope, ele, attrs, transcludefn){
+        scope.font = scope.font || "standard";
+        scope.text = scope.text || '';
+        scope.fig  = '';
+        ele = angular.element(ele.children()[0]);
 
-        figlify.figlify(ele.text(), scope.font, function(str){
-          ele.text(str);
+        scope.$watch('text', function(newValue, oldValue){
+          if (newValue === ''){
+            scope.fig = '';
+          } else {
+            figlify.figlify(scope.text, scope.font, function(str){
+              scope.fig = str;
+            });
+          } 
         });
       }
     };

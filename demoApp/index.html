@@ -19,8 +19,8 @@
     <script src="/counter/counter.provider.js"></script>
     <script src="/figlet/figlet.directive.js"></script>
     <script src="/figlet/figlify.provider.js"></script>
-    <script src="/marquee/marquee.directive.js"></script>
     <script src="/flasher/flasher.directive.js"></script>
+    <script src="/marquee/marquee.directive.js"></script>
     <script src="/pixelated-img/pixelated-img.directive.js"></script>
     <script src="/sparkler/sparkler.factory.js"></script>
     <!-- endinject -->
@@ -39,9 +39,9 @@
 
     <!-- Flash Directive -->
     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
-      <pre figlet font='alligator'>Neo</pre>
-      <pre figlet font='alligator'>Geocities</pre>
-      <pre figlet font='alligator'>ng-eocities</pre>
+      <figlet font='alligator' text='Neo'></figlet>
+      <figlet font='alligator' text='Geocities'></figlet>
+      <figlet font='alligator' text='ng-eocities'></figlet>
     </div>
     <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
       <div counter></div>
@@ -49,6 +49,8 @@
 
     <!-- Pixelated-Img Directive -->
     <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img>
+    <input ng-model='fig' type='text' placeholder='figlify some text'>
+    <figlet text='{{fig}}' font='alligator'></figlet>
 
     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
       <div marquee width='1000px' align='center' duration='5000'>
@@ -56,7 +58,7 @@
       </div>
     </div>
 
-    <pre class='construction' figlet font='cyberlarge'>under construction!</pre>
+    <pre class='construction' figlet font='cyberlarge' text='under construction!'></pre>
   </body>
 </html>
 
