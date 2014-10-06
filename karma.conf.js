@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Fri Oct 03 2014 14:20:43 GMT-0700 (PDT)
+var paths = require('./build.config.js');
 
 module.exports = function(config) {
   config.set({
@@ -10,14 +11,17 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
-        'bower_components/angular/angular.min.js',
-        'src/**/*.js'
-        
+        'bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'src/**/*.module.js',
+        'src/**/*.js',
+        'src/ngEocities.js',
+        'src/**/*.spec.js'
     ],
 
 
