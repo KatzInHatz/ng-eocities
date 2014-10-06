@@ -5,9 +5,9 @@ angular.module('ngEocities.pixelated-img')
 
 .directive('pixelatedImg', ['$document', function($document) {
   return {
-    restrict: 'E',
+    restrict: 'EA',
     scope: {
-      src: '=',
+      source: '@',
       height: '@',
       width: '@',
       pixelation: '@'
@@ -18,7 +18,7 @@ angular.module('ngEocities.pixelated-img')
       var image = document.createElement('img');
 
       image.onload = function() {
-        image.src = scope.src;
+        image.src = scope.source;
         setDimensions();
         pixelate();
       };
@@ -32,7 +32,7 @@ angular.module('ngEocities.pixelated-img')
       }
       
       function pixelate() {
-        image.src = scope.src;
+        image.src = scope.source;
 
         // scale by pixelation factor
         scope.pixelation = scope.pixelation || 10;
@@ -53,6 +53,7 @@ angular.module('ngEocities.pixelated-img')
       }
 
       scope.$watch('pixelation', pixelate);
+      scope.$watch('source', pixelate);
 
       element.append(canvas); 
     }

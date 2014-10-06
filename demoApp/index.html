@@ -36,30 +36,53 @@
   </head>
   <body ng-controller="myController">
 
+    <div marquee width='1000px' duration='5000' style="margin: auto;">
+      <pre figlet font='isometric3'>welcome to ng-eocities!!></pre>
+      <!-- <p>hihi<p> -->
+    </div>
+
+    <p>We are Katz in Hatz and we created </p>
+    <div>
+      <div pixelated-img source="{{aaron}}" pixelation="4" style="float: left;"></div>
+      <div pixelated-img source="{{kat}}" pixelation="{{pixelation}}" style="float: left;"></div>
+      <div pixelated-img source="{{john}}" pixelation="4" style="border-radius: 50px;"></div>
+    </div>
+    <br/>
+    <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
+    
+
     <!-- Flash Directive -->
     <div class="flash" blink option='rainbow' active='true' flashtext='true' interval='100'>
       <figlet font='alligator' text='Neo'></figlet>
       <figlet font='alligator' text='Geocities'></figlet>
       <figlet font='alligator' text='ng-eocities'></figlet>
+<!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
+      <pre figlet font='alligator'>Neo</pre>
+      <pre figlet font='alligator'>Geocities</pre>
+      <pre figlet font='alligator'>ng-eocities</pre>
+>>>>>>> begin work on demo page + fix marquee.directive
     </div>
     <div class="flash" blink option="blackwhite" active='true' flashtext='true' interval='500'>
       <div counter></div>
     </div>
-
+ -->
     <!-- Pixelated-Img Directive -->
     <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img>
     <input ng-model='fig' type='text' placeholder='figlify some text'>
     <figlet text='{{fig}}' font='alligator'></figlet>
     <pixelated-img src="link" pixelation="{{pixelation}}" ng-click="action()"></pixelated-img>
     <input type="range" min="1" max="100" ng-model="pixelation" />
-
-    <div class="flash" blink option="rainbow" active='true' flashtext='true' interval='500'>
+<!--     <div pixelated-img source="{{link}}" pixelation="{{pixelation}}" ng-click="action()"></div>
+    <input type="range" min="1" max="100" ng-model="pixelation" /> -->
+<!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
+>>>>>>> begin work on demo page + fix marquee.directive
       <div marquee width='1000px' align='center' duration='5000'>
         <div counter></div>
       </div>
-    </div>
+    </div> -->
 
     <pre class='construction' figlet font='cyberlarge' text='under construction!'></pre>
+    <!-- <pre class='construction' figlet font='cyberlarge'>under construction!</pre> -->
   </body>
 </html>
 
