@@ -1,9 +1,8 @@
 var gulp   = require('gulp');
     $      = require('gulp-load-plugins')();
     server = require('./demoApp/server.js');
-    // open   = require('gulp-open ');
-var stylus = require('gulp-stylus');
-var paths  = require('./build.config.js');
+    stylus = require('gulp-stylus');
+    paths  = require('./build.config.js');
 
 
 gulp.task('styles', function() {
