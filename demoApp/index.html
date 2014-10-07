@@ -11,16 +11,18 @@
     <script src="/blink/blink.module.js"></script>
     <script src="/counter/counter.module.js"></script>
     <script src="/figlet/figlet.module.js"></script>
+    <script src="/jukebox/jukebox.module.js"></script>
     <script src="/marquee/marquee.module.js"></script>
     <script src="/pixelated-img/pixelated-img.module.js"></script>
     <script src="/sparkler/sparkler.module.js"></script>
     <script src="/ngEocities.js"></script>
-    <script src="/blink/blink.directive.js"></script>
     <script src="/counter/counter.directive.js"></script>
     <script src="/counter/counter.provider.js"></script>
     <script src="/figlet/figlet.directive.js"></script>
     <script src="/figlet/figlify.provider.js"></script>
+    <script src="/jukebox/jukebox.directive.js"></script>
     <script src="/marquee/marquee.directive.js"></script>
+    <script src="/blink/blink.directive.js"></script>
     <script src="/pixelated-img/pixelated-img.directive.js"></script>
     <script src="/sparkler/sparkler.factory.js"></script>
     <!-- endinject -->
@@ -73,6 +75,15 @@
 
       &#60;div pixelated-img source="<code ng-non-bindable>{{image}}</code>" pixelation="<code ng-non-bindable>{{pixelation}}</code>"&#62;&#60;/div&#62;
       &#60;input type="range" min="1" max="100" ng-model="pixelation" /&#62;&#60;/div&#62;
+    </pre>
+
+    <figlet text='<jukebox>' font='larry3d'></figlet>
+    <p>creates a jukebox for your muzak.</p>
+    <jukebox src="{{ jukebox.src }}" volume="jukebox.volume"></jukebox>
+    <p>example:</p>
+    <pre>
+
+      &#60;jukebox src="<code ng-non-bindable>{{ src }}</code>" volume="<code ng-non-bindable>{{ jukebox.volume }}</code>"&#62;&#60;/jukebox&#62;
     </pre>
 
     <div marquee width='800px' duration='5000' direction='right'>
