@@ -7,9 +7,7 @@
   
     function link(scope, element, attrs) {
       var distance, padding, origin, axis, fps, totalFrames;
-
-      console.log(angular.element(element).children().next(), angular.element(element));
-
+      
       angular.element(element).css({
         'display': 'block',
         'width': attrs.width,

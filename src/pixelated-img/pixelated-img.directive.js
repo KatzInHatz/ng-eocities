@@ -6,6 +6,7 @@ angular.module('ngEocities.pixelated-img')
 .directive('pixelatedImg', ['$document', function($document) {
   return {
     restrict: 'EA',
+    template: '<canvas></canvas>',
     scope: {
       source: '@',
       height: '@',
@@ -13,7 +14,7 @@ angular.module('ngEocities.pixelated-img')
       pixelation: '@'
     },
     link: function(scope, element, attrs) {
-      var canvas = document.createElement('canvas');
+      var canvas = element.children()[0];
       var context = canvas.getContext('2d');
       var image = document.createElement('img');
 
@@ -54,8 +55,6 @@ angular.module('ngEocities.pixelated-img')
 
       scope.$watch('pixelation', pixelate);
       scope.$watch('source', pixelate);
-
-      element.append(canvas); 
     }
   };
 }]);

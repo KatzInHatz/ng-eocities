@@ -38,17 +38,45 @@
 
     <div marquee width='1000px' duration='5000' style="margin: auto;">
       <pre figlet font='isometric3'>welcome to ng-eocities!!></pre>
-      <!-- <p>hihi<p> -->
     </div>
 
-    <p>We are Katz in Hatz and we created </p>
-    <div>
-      <div pixelated-img source="{{aaron}}" pixelation="4" style="float: left;"></div>
-      <div pixelated-img source="{{kat}}" pixelation="{{pixelation}}" style="float: left;"></div>
-      <div pixelated-img source="{{john}}" pixelation="4" style="border-radius: 50px;"></div>
+
+
+    <p style="text-align: center;">figlet</p>
+    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500' style="float: left">Katz in Hatz</div>
+    <div style="text-align: center;">
+      <div pixelated-img source="{{aaron}}" pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
+      <div pixelated-img source="{{kat}}"   pixelation="{{pixelation}}" style="display: inline-block"></div>
+      <div pixelated-img source="{{john}}"  pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
+      <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
     </div>
-    <br/>
-    <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
+
+    <div marquee width='1000px' duration='3000' direction="right" style="margin: auto;">
+      <pre figlet font='alligator' style="display: inline-block;">Kawww!!</pre>
+      <pre style="display: inline-block;">
+        ((
+        \\``.
+        \_`.``-. 
+        ( `.`.` `._  
+         `._`-.    `._ 
+           \`--.   ,' `. 
+            `--._  `.  .`. 
+             `--.--- `. ` `. 
+                 `.--  `;  .`._ 
+                   :-   :   ;. `.__,.,__ __ 
+                    `\  :       ,-(     ';o`>.
+                      `-.`:   ,'   `._ .:  (,-`,
+                         \    ;      ;.  ,: 
+                     ,"`-._>-:        ;,'  `---.,---.
+                     `>'"  "-`       ,'   "":::::".. `-.
+                      `;"'_,  (\`\ _ `:::::::::::'"     `---.
+                       `-(_,' -'),)\`.       _      .::::"'  `----._,-"")
+                           \_,': `.-' `-----' `--;-.   `.   ``.`--.____/ 
+                             `-^--'                \(-.  `.``-.`-=:-.__)
+                                                    `  `.`.`._`.-._`--.)
+                                                         `-^---^--.`--
+      </pre>
+    </div>
     
 
     <!-- Flash Directive -->
