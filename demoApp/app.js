@@ -7,6 +7,7 @@ app.config(function(counterProvider, figlifyProvider) {
 
 app.controller('myController', function($scope, $timeout) {
   var toggle = false;
+  $scope.fig = 'type something';
   $scope.aaron = 'https://media.licdn.com/media/p/5/005/06a/07c/0ee6549.jpg';
   $scope.john = 'https://media.licdn.com/media/p/3/000/08f/332/20b3765.jpg';
   $scope.kat = 'http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg';

@@ -37,10 +37,25 @@
   <body ng-controller="myController">
 
     <div marquee width='1000px' duration='5000' style="margin: auto;">
-      <pre figlet font='isometric3'>welcome to ng-eocities!!></pre>
+      <figlet text='welcome to ng-eocities!!' font='isometric3'></figlet>
     </div>
 
+    <br/>
 
+    <figlet text='<figlet>' font='larry3d'></figlet>
+    <p>allows you to convert any text to a figlet font.</p>
+    <figlet text='{{fig}}' font='smkeyboard'></figlet>
+    <input ng-model='fig' type='text' placeholder='figlify some text' />
+
+    <p>example:</p>
+    <pre>
+      &#60;figlet text='model' font='smkeyboard'&#62;&#60;/figlet&#62;
+      &#60;input ng-model='model' type='text' placeholder='figlify some text' /&#62;
+    </pre>
+
+    <div marquee width='800px' duration='5000'>
+      <figlet text='<marquee>' font='larry3d'></figlet>
+    </div>
 
     <p style="text-align: center;">figlet</p>
     <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500' style="float: left">Katz in Hatz</div>
@@ -52,7 +67,7 @@
     </div>
 
     <div marquee width='1000px' duration='3000' direction="right" style="margin: auto;">
-      <pre figlet font='alligator' style="display: inline-block;">Kawww!!</pre>
+      <figlet text="Kawww!!" font='alligator' style="display: inline-block;"></figlet>
       <pre style="display: inline-block;">
         ((
         \\``.
@@ -84,6 +99,7 @@
       <figlet font='alligator' text='Neo'></figlet>
       <figlet font='alligator' text='Geocities'></figlet>
       <figlet font='alligator' text='ng-eocities'></figlet>
+    </div>
 <!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
       <pre figlet font='alligator'>Neo</pre>
       <pre figlet font='alligator'>Geocities</pre>
@@ -95,11 +111,11 @@
     </div>
  -->
     <!-- Pixelated-Img Directive -->
-    <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img>
-    <input ng-model='fig' type='text' placeholder='figlify some text'>
+    <!-- <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img> -->
+    <input ng-model='fig' type='text' placeholder='figlify some text' />
     <figlet text='{{fig}}' font='alligator'></figlet>
-    <pixelated-img src="link" pixelation="{{pixelation}}" ng-click="action()"></pixelated-img>
-    <input type="range" min="1" max="100" ng-model="pixelation" />
+    <!-- <pixelated-img src="link" pixelation="{{pixelation}}" ng-click="action()"></pixelated-img> -->
+    <!-- <input type="range" min="1" max="100" ng-model="pixelation" /> -->
 <!--     <div pixelated-img source="{{link}}" pixelation="{{pixelation}}" ng-click="action()"></div>
     <input type="range" min="1" max="100" ng-model="pixelation" /> -->
 <!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
@@ -109,7 +125,7 @@
       </div>
     </div> -->
 
-    <pre class='construction' figlet font='cyberlarge' text='under construction!'></pre>
+    <!-- <pre class='construction' figlet font='cyberlarge' text='under construction!'></pre> -->
     <!-- <pre class='construction' figlet font='cyberlarge'>under construction!</pre> -->
   </body>
 </html>
