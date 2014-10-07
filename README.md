@@ -39,6 +39,13 @@ html:
     <figlet text='{{model}}' font='smkeyboard'></figlet>
     <input ng-model='model' type='text' placeholder='figlify some text' />
 
+###jukebox
+Bring the party with your own jazzy jukebox. Just plug in some tunes, and trip out to those sweet, sweet visualizations.
+
+bins and fps will default to 32 and 60, respectively. You can interpolate the path to your muzak, but you'll have to escape it, as in the demo. volume can be between 0 and 1.
+
+    <jukebox src="/path/to/muzak" volume="1" fps="60" bins="16"></jukebox>
+
 ###marquee
 Don't let deprecation slow you down, get those marquee's out of your legacy code and into mobile website.
 
@@ -75,7 +82,6 @@ Because who said a mouse should look like a black arrow anyway?
     });
 
 ##Backlog
-####jukebox
 ####draggable
 
 ##Contributing
