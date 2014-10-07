@@ -9,8 +9,9 @@ var gulp   = require('gulp');
 gulp.task('styles', function() {
   gulp.src(paths.app_files.styles)
     .pipe(stylus())
-    .pipe($.concat('ng-eocities.css'))
-    .pipe(gulp.dest(paths.demo.dir));
+    .pipe(gulp.dest(paths.demo.dir))
+    .pipe(gulp.dest(paths.dist));
+
 });
 
 gulp.task('lint', function(){
@@ -111,5 +112,5 @@ gulp.task('tdd', function(done){
   }, done);
 });
 
-gulp.task('build', ['lint', 'concat', 'uglify']);
+gulp.task('build', ['lint', 'concat', 'uglify', 'styles']);
 gulp.task('default', ['build', 'watch']);

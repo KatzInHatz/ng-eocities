@@ -6,7 +6,7 @@ module.exports = {
   demo: {
     dir: 'demoApp',
     index: 'demoApp/index.html',
-    styles: 'demoApp/*.css'
+    styles: 'demoApp/styles/*.css'
   },
 
   app_files: {
