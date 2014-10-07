@@ -103,31 +103,13 @@
     <div style="clear: both;">
     <p>example:</p>
     <pre>
+      app.config(function(figlifyProvider) {
+        // set the path to your figlet fonts
+        figlifyProvider.setFontsRoute('/figlet/fonts/');
+      });
+
       &#60;div marquee width='1000px' duration='3000' direction="right" style="margin: auto;"&#62;
-        &#60;figlet text="Kawww!!" font='alligator' style="display: inline-block;"&#62;&#60;/figlet&#62;
-        &#60;pre style="display: inline-block;"&#62;
-          ((
-          \\``.
-          \_`.``-. 
-          ( `.`.` `._  
-           `._`-.    `._ 
-             \`--.   ,' `. 
-              `--._  `.  .`. 
-               `--.--- `. ` `. 
-                   `.--  `;  .`._ 
-                     :-   :   ;. `.__,.,__ __ 
-                      `\  :       ,-(     ';o`>.
-                        `-.`:   ,'   `._ .:  (,-`,
-                           \    ;      ;.  ,: 
-                       ,"`-._>-:        ;,'  `---.,---.
-                       `>'"  "-`       ,'   "":::::".. `-.
-                        `;"'_,  (\`\ _ `:::::::::::'"     `---.
-                         `-(_,' -'),)\`.       _      .::::"'  `----._,-"")
-                             \_,': `.-' `-----' `--;-.   `.   ``.`--.____/ 
-                               `-^--'                \(-.  `.``-.`-=:-.__)
-                                                      `  `.`.`._`.-._`--.)
-                                                           `-^---^--.`--
-        &#60;/pre&#62;
+        &#60;figlet text="Kawww!!" font='alligator'&#62;&#60;/figlet&#62;
       &#60;/div&#62;
     </pre>
 
@@ -161,6 +143,19 @@
 
       &#60;div pixelated-img source="<code ng-non-bindable>{{image}}</code>" pixelation="<code ng-non-bindable>{{pixelation}}</code>"&#62;&#60;/div&#62;
       &#60;input type="range" min="1" max="100" ng-model="pixelation" /&#62;&#60;/div&#62;
+    </pre>
+
+    <figlet text='<counter>' font='larry3d'></figlet>
+    <p>uses firebase to create a real time visitor counter.</p>
+    <div counter></div>
+    <p>example:</p>
+    <pre>
+      app.config(function(counterProvider) {
+        // point counter to your firebase count url
+        counterProvider.setFirebaseURL('https://ng-eocities.firebaseio.com/');
+      });
+
+      &#60;div counter&#62;&#60;/div&#62;
     </pre>
 
 <!--     <p style="text-align: center;">figlet</p>
