@@ -49,7 +49,7 @@
 
     <p>example:</p>
     <pre>
-      &#60;figlet text='model' font='smkeyboard'&#62;&#60;/figlet&#62;
+      &#60;figlet text='<code ng-non-bindable>{{model}}</code>' font='smkeyboard'&#62;&#60;/figlet&#62;
       &#60;input ng-model='model' type='text' placeholder='figlify some text' /&#62;
     </pre>
 
@@ -150,6 +150,17 @@
     <p>example:</p>
     <pre>
       &#60;div flasher colors="rainbow" active='true' flashtext='true' interval='100' style='float:left;'&#62;don't  blink&#60;/div&#62;
+    </pre>
+
+    <figlet text='<pixelated-img>' font='larry3d'></figlet>
+    <p>allows you to pixelate an image.</p>
+    <div pixelated-img source="http://www.neowin.net/forum/uploads/post-59416-1105987532.jpg" pixelation="{{pixelation}}"></div>
+    <input type="range" min="1" max="100" ng-model="pixelation" /></div>
+    <p>example:</p>
+    <pre>
+
+      &#60;div pixelated-img source="<code ng-non-bindable>{{image}}</code>" pixelation="<code ng-non-bindable>{{pixelation}}</code>"&#62;&#60;/div&#62;
+      &#60;input type="range" min="1" max="100" ng-model="pixelation" /&#62;&#60;/div&#62;
     </pre>
 
 <!--     <p style="text-align: center;">figlet</p>
