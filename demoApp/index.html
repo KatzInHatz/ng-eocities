@@ -53,20 +53,28 @@
       &#60;input ng-model='model' type='text' placeholder='figlify some text' /&#62;
     </pre>
 
-    <div marquee width='800px' duration='5000'>
+    <div marquee width='800px' duration='5000' direction='right'>
       <figlet text='<marquee>' font='larry3d'></figlet>
     </div>
-
-    <p style="text-align: center;">figlet</p>
-    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500' style="float: left">Katz in Hatz</div>
-    <div style="text-align: center;">
-      <div pixelated-img source="{{aaron}}" pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
-      <div pixelated-img source="{{kat}}"   pixelation="{{pixelation}}" style="display: inline-block"></div>
-      <div pixelated-img source="{{john}}"  pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
-      <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
+    <p>creates a marquee of any size in any direction.</p>
+    <pre style="display: inline-block">
+             _____
+            |     |
+         ___|  ^  |___ 
+        |             |
+        | <         > |
+        |___       ___|
+            |  v  |
+            |_____|
+    </pre>
+    <div style="display: inline-block;">
+      <div marquee width='40px' height='1em' duration='1500' direction='up' style="position: relative; top: -5em; left: -4.5em">up</div>
+      <div marquee width='40px' height='1em' duration='1500' direction='left' style="position: relative; top: -1.5em; left: -10.5em">left</div>
+      <div marquee width='40px' height='1em' duration='1500' direction='right' style="position: relative; top: -2.5em;">right</div>
+      <div marquee width='40px' height='1em' duration='1500' direction='down' style="position: relative; top: 1em; left: -5em">down</div>
     </div>
 
-    <div marquee width='1000px' duration='3000' direction="right" style="margin: auto;">
+    <div marquee width='800px' duration='4000' direction="right" style="margin: auto; float: right;">
       <figlet text="Kawww!!" font='alligator' style="display: inline-block;"></figlet>
       <pre style="display: inline-block;">
         ((
@@ -92,6 +100,46 @@
                                                          `-^---^--.`--
       </pre>
     </div>
+    <div style="clear: both;">
+    <p>example:</p>
+    <pre>
+      &#60;div marquee width='1000px' duration='3000' direction="right" style="margin: auto;"&#62;
+        &#60;figlet text="Kawww!!" font='alligator' style="display: inline-block;"&#62;&#60;/figlet&#62;
+        &#60;pre style="display: inline-block;"&#62;
+          ((
+          \\``.
+          \_`.``-. 
+          ( `.`.` `._  
+           `._`-.    `._ 
+             \`--.   ,' `. 
+              `--._  `.  .`. 
+               `--.--- `. ` `. 
+                   `.--  `;  .`._ 
+                     :-   :   ;. `.__,.,__ __ 
+                      `\  :       ,-(     ';o`>.
+                        `-.`:   ,'   `._ .:  (,-`,
+                           \    ;      ;.  ,: 
+                       ,"`-._>-:        ;,'  `---.,---.
+                       `>'"  "-`       ,'   "":::::".. `-.
+                        `;"'_,  (\`\ _ `:::::::::::'"     `---.
+                         `-(_,' -'),)\`.       _      .::::"'  `----._,-"")
+                             \_,': `.-' `-----' `--;-.   `.   ``.`--.____/ 
+                               `-^--'                \(-.  `.``-.`-=:-.__)
+                                                      `  `.`.`._`.-._`--.)
+                                                           `-^---^--.`--
+        &#60;/pre&#62;
+      &#60;/div&#62;
+    </pre>
+
+    <p style="text-align: center;">figlet</p>
+    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500' style="float: left">Katz in Hatz</div>
+    <div style="text-align: center;">
+      <div pixelated-img source="{{aaron}}" pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
+      <div pixelated-img source="{{kat}}"   pixelation="{{pixelation}}" style="display: inline-block"></div>
+      <div pixelated-img source="{{john}}"  pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
+      <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
+    </div>
+
     
 
     <!-- Flash Directive -->
