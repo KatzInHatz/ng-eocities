@@ -4,6 +4,7 @@
   "description": "Let's party like it's 1999!",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bower i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -47,5 +48,7 @@
     "mocha": "^1.21.4",
     "sinon": "^1.10.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bower": "^1.3.12"
+  }
 }
