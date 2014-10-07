@@ -1,6 +1,7 @@
 #ng-eocities
 
 A library of retro Angular directives
+v0.0.0
 
 [Demo](http://www.ng-eocities.com/)
 
