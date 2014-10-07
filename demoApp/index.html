@@ -112,14 +112,13 @@
         &#60;figlet text="Kawww!!" font='alligator'&#62;&#60;/figlet&#62;
       &#60;/div&#62;
     </pre>
-
-    <div flasher colors="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
+    <div blink option="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
       <figlet text='<blink>' font='larry3d'></figlet>
     </div>
     <div style="clear: both;"></div>
     <p>makes your text flash.</p>
 
-    <div flasher colors="rainbow" active='true' flashtext='true' interval='100' style='float:left;'>
+    <div blink option="rainbow" active='true' flashtext='true' interval='100' style='float:left;'>
       <pre style="display: inline-block;">
   ,-""-.                  ,-""-.
  / ,--. \                / ,--. \
@@ -131,7 +130,7 @@
     <div style="clear: both;"></div>
     <p>example:</p>
     <pre>
-      &#60;div flasher colors="rainbow" active='true' flashtext='true' interval='100' style='float:left;'&#62;don't  blink&#60;/div&#62;
+      &#60;div blink option="rainbow" active='true' flashtext='true' interval='100' style='float:left;'&#62;don't  blink&#60;/div&#62;
     </pre>
 
     <figlet text='<pixelated-img>' font='larry3d'></figlet>
@@ -147,7 +146,10 @@
 
     <figlet text='<counter>' font='larry3d'></figlet>
     <p>uses firebase to create a real time visitor counter.</p>
-    <div counter></div>
+    <div blink option="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
+      <div counter></div>
+    </div>
+    <div style="clear: both;">
     <p>example:</p>
     <pre>
       app.config(function(counterProvider) {
