@@ -131,23 +131,45 @@
       &#60;/div&#62;
     </pre>
 
-    <p style="text-align: center;">figlet</p>
+    <div flasher colors="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
+      <figlet text='<blink>' font='larry3d'></figlet>
+    </div>
+    <div style="clear: both;"></div>
+    <p>makes your text flash.</p>
+
+    <div flasher colors="rainbow" active='true' flashtext='true' interval='100' style='float:left;'>
+      <pre style="display: inline-block;">
+  ,-""-.                  ,-""-.
+ / ,--. \                / ,--. \
+| ( () ) |              | ( () ) |
+ \ `--' /                \ `--' /
+  `-..-'   don't  blink   `-..-'
+      </pre>
+    </div>
+    <div style="clear: both;"></div>
+    <p>example:</p>
+    <pre>
+      &#60;div flasher colors="rainbow" active='true' flashtext='true' interval='100' style='float:left;'&#62;don't  blink&#60;/div&#62;
+    </pre>
+
+<!--     <p style="text-align: center;">figlet</p>
     <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500' style="float: left">Katz in Hatz</div>
     <div style="text-align: center;">
       <div pixelated-img source="{{aaron}}" pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
       <div pixelated-img source="{{kat}}"   pixelation="{{pixelation}}" style="display: inline-block"></div>
       <div pixelated-img source="{{john}}"  pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
       <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
-    </div>
-
+    </div> -->
     
 
     <!-- Flash Directive -->
-    <div class="flash" blink option='rainbow' active='true' flashtext='true' interval='100'>
+<!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
+>>>>>>> add blink to demo app
+>>>>>>> add blink to demo app
       <figlet font='alligator' text='Neo'></figlet>
       <figlet font='alligator' text='Geocities'></figlet>
       <figlet font='alligator' text='ng-eocities'></figlet>
-    </div>
+    </div> -->
 <!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
       <pre figlet font='alligator'>Neo</pre>
       <pre figlet font='alligator'>Geocities</pre>
@@ -160,8 +182,8 @@
  -->
     <!-- Pixelated-Img Directive -->
     <!-- <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img> -->
-    <input ng-model='fig' type='text' placeholder='figlify some text' />
-    <figlet text='{{fig}}' font='alligator'></figlet>
+<!--     <input ng-model='fig' type='text' placeholder='figlify some text' />
+    <figlet text='{{fig}}' font='alligator'></figlet> -->
     <!-- <pixelated-img src="link" pixelation="{{pixelation}}" ng-click="action()"></pixelated-img> -->
     <!-- <input type="range" min="1" max="100" ng-model="pixelation" /> -->
 <!--     <div pixelated-img source="{{link}}" pixelation="{{pixelation}}" ng-click="action()"></div>
