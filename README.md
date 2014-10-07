@@ -85,3 +85,4 @@ Because who said a mouse should look like a black arrow anyway?
 ####draggable
 
 ##Contributing
+Pull requests are welcome.  Please include unit tests and adhere to commit convention "fixes, adds, etc."
