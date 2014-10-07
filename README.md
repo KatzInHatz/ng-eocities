@@ -12,7 +12,7 @@ All directives and their dependencies have their own module and can be used indi
 Tired of the razer sharp images of the modern web?  Pixelate down that fidelity to your heart's content!
 
 ###figlet
-Add some pizzazz to your text by figlifying it up
+Add some pizzazz to your text by figlifying it up.  This is a port of [scottgonzalez's figlet-js](https://github.com/scottgonzalez/figlet-js).
 
 ###marquee
 Don't let deprecation slow you down, get those marquee's out of your legacy code and into mobile website.
