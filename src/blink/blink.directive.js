@@ -10,16 +10,24 @@
       transclude: true,
       scope: {
         active: '@',
-        flashtext: '@'
+        flashtext: '@',
+        option: '@',
+        interval: '@'
       },
       link: function(scope, ele, attrs){
         scope.options = {
           rainbow: ['red', 'orange', 'yellow', 'green', 'blue', 'purple'],
-          blackwhite: ['black', 'white']};
-        scope.selection = scope.options[attrs.colors];
+          blackwhite: ['black', 'white'], 
+          simple: [0, 1]
+        };
+
+        console.log('scope.option: ', scope.option);
+
         scope.current = 0;
+        scope.option    = scope.options[scope.option] ? scope.option : 'simple';
         scope.flashtext = scope.flashtext || false;
-        scope.active    = scope.active || false;
+        scope.active    = scope.active    || false;
+        scope.interval  = scope.interval !== undefined ? scope.interval: 500;
         scope.flash     = flash;
 
         scope.$watch('active', function(newValue, oldValue) {
@@ -28,18 +36,20 @@
         });
 
         function flash(){
+          var length, fontColor, property;
+          property = scope.option === 'simple' ? 'opacity': 'background-color';
           if (scope.active){
-            ele.css('background-color', scope.selection[scope.current]);
+            console.log('property is: ', property);
+            ele.css(property, scope.options[scope.option][scope.current]);
+            length = scope.options[scope.option].length;
             if ( scope.flashtext ){
-              var fontColor = attrs.colors === 'rainbow' ? 
-                scope.selection[(scope.current+3)%6] :
-                scope.selection[(scope.current+1)%2];
+              fontColor = scope.options[scope.option][(scope.current+length/2)%length];
               setChildFontColor(ele, fontColor);
             }
-            scope.current =  scope.current < scope.selection.length-1 ? scope.current+1 : 0;
+            scope.current =  scope.current < length-1 ? scope.current+1 : 0;
             $timeout(function(){
               flash();
-            }, attrs.interval);
+            }, scope.interval);
           }
         }
 
