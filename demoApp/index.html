@@ -41,6 +41,13 @@
     </div>
 
     <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
     <figlet text='<figlet>' font='larry3d'></figlet>
     <p>allows you to convert any text to a figlet font.</p>
@@ -49,8 +56,24 @@
 
     <p>example:</p>
     <pre>
+      app.config(function(figlifyProvider) {
+        // set the path to your figlet fonts
+        figlifyProvider.setFontsRoute('/figlet/fonts/');
+      });
+
       &#60;figlet text='<code ng-non-bindable>{{model}}</code>' font='smkeyboard'&#62;&#60;/figlet&#62;
       &#60;input ng-model='model' type='text' placeholder='figlify some text' /&#62;
+    </pre>
+
+    <figlet text='<pixelated-img>' font='larry3d'></figlet>
+    <p>allows you to pixelate an image.</p>
+    <div pixelated-img source="http://www.neowin.net/forum/uploads/post-59416-1105987532.jpg" pixelation="{{pixelation}}"></div>
+    <input type="range" min="1" max="100" ng-model="pixelation" /></div>
+    <p>example:</p>
+    <pre>
+
+      &#60;div pixelated-img source="<code ng-non-bindable>{{image}}</code>" pixelation="<code ng-non-bindable>{{pixelation}}</code>"&#62;&#60;/div&#62;
+      &#60;input type="range" min="1" max="100" ng-model="pixelation" /&#62;&#60;/div&#62;
     </pre>
 
     <div marquee width='800px' duration='5000' direction='right'>
@@ -74,7 +97,7 @@
       <div marquee width='40px' height='1em' duration='1500' direction='down' style="position: relative; top: 1em; left: -5em">down</div>
     </div>
 
-    <div marquee width='800px' duration='4000' direction="right" style="margin: auto; float: right;">
+    <div marquee width='800px' duration='4000' direction="right" style="margin: auto; float: right; position: relative; left: -18em">
       <figlet text="Kawww!!" font='alligator' style="display: inline-block;"></figlet>
       <pre style="display: inline-block;">
         ((
@@ -103,16 +126,11 @@
     <div style="clear: both;">
     <p>example:</p>
     <pre>
-      app.config(function(figlifyProvider) {
-        // set the path to your figlet fonts
-        figlifyProvider.setFontsRoute('/figlet/fonts/');
-      });
-
       &#60;div marquee width='1000px' duration='3000' direction="right" style="margin: auto;"&#62;
         &#60;figlet text="Kawww!!" font='alligator'&#62;&#60;/figlet&#62;
       &#60;/div&#62;
     </pre>
-    <div blink option="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
+    <div blink active='true' flashtext='true' interval='500' style='float:left;'>
       <figlet text='<blink>' font='larry3d'></figlet>
     </div>
     <div style="clear: both;"></div>
@@ -124,24 +142,13 @@
  / ,--. \                / ,--. \
 | ( () ) |              | ( () ) |
  \ `--' /                \ `--' /
-  `-..-'   don't  blink   `-..-'
+  `-..-' staring contest! `-..-'
       </pre>
     </div>
     <div style="clear: both;"></div>
     <p>example:</p>
     <pre>
       &#60;div blink option="rainbow" active='true' flashtext='true' interval='100' style='float:left;'&#62;don't  blink&#60;/div&#62;
-    </pre>
-
-    <figlet text='<pixelated-img>' font='larry3d'></figlet>
-    <p>allows you to pixelate an image.</p>
-    <div pixelated-img source="http://www.neowin.net/forum/uploads/post-59416-1105987532.jpg" pixelation="{{pixelation}}"></div>
-    <input type="range" min="1" max="100" ng-model="pixelation" /></div>
-    <p>example:</p>
-    <pre>
-
-      &#60;div pixelated-img source="<code ng-non-bindable>{{image}}</code>" pixelation="<code ng-non-bindable>{{pixelation}}</code>"&#62;&#60;/div&#62;
-      &#60;input type="range" min="1" max="100" ng-model="pixelation" /&#62;&#60;/div&#62;
     </pre>
 
     <figlet text='<counter>' font='larry3d'></figlet>
@@ -160,51 +167,54 @@
       &#60;div counter&#62;&#60;/div&#62;
     </pre>
 
-<!--     <p style="text-align: center;">figlet</p>
-    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500' style="float: left">Katz in Hatz</div>
-    <div style="text-align: center;">
-      <div pixelated-img source="{{aaron}}" pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
-      <div pixelated-img source="{{kat}}"   pixelation="{{pixelation}}" style="display: inline-block"></div>
-      <div pixelated-img source="{{john}}"  pixelation="{{pixelation}}" style="display: inline-block; border-radius: 100px; overflow: hidden"></div>
-      <div style="clear: both;"><input type="range" min="1" max="100" ng-model="pixelation" /></div>
-    </div> -->
-    
-
-    <!-- Flash Directive -->
-<!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
->>>>>>> add blink to demo app
->>>>>>> add blink to demo app
-      <figlet font='alligator' text='Neo'></figlet>
-      <figlet font='alligator' text='Geocities'></figlet>
-      <figlet font='alligator' text='ng-eocities'></figlet>
-    </div> -->
-<!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
-      <pre figlet font='alligator'>Neo</pre>
-      <pre figlet font='alligator'>Geocities</pre>
-      <pre figlet font='alligator'>ng-eocities</pre>
->>>>>>> begin work on demo page + fix marquee.directive
+    <div blink option='rainbow' active='true' flashtext='true' interval='100' style='float:left;'>
+      <figlet text='sparkler' font='larry3d'></figlet>
     </div>
-    <div class="flash" blink option="blackwhite" active='true' flashtext='true' interval='500'>
+    <div style="clear: both;">
+    <p>makes your cursor sparkly.</p>
+    <p>example:</p>
+    <pre>
+      app.run(function(sparkler) {
+        sparkler();
+      });
+    </pre>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div style='width: 1150px; margin: auto;'>
+      <figlet class='construction' text='this site is' font='cyberlarge' style='display: block;'></figlet>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      <figlet class='construction' text='under construction!' font='cyberlarge' style='display: block;'></figlet>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div blink option="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
       <div counter></div>
     </div>
- -->
-    <!-- Pixelated-Img Directive -->
-    <!-- <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img> -->
-<!--     <input ng-model='fig' type='text' placeholder='figlify some text' />
-    <figlet text='{{fig}}' font='alligator'></figlet> -->
-    <!-- <pixelated-img src="link" pixelation="{{pixelation}}" ng-click="action()"></pixelated-img> -->
-    <!-- <input type="range" min="1" max="100" ng-model="pixelation" /> -->
-<!--     <div pixelated-img source="{{link}}" pixelation="{{pixelation}}" ng-click="action()"></div>
-    <input type="range" min="1" max="100" ng-model="pixelation" /> -->
-<!--     <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
->>>>>>> begin work on demo page + fix marquee.directive
-      <div marquee width='1000px' align='center' duration='5000'>
-        <div counter></div>
-      </div>
-    </div> -->
+    <br/>
+    <br/>
+    <br/>
 
-    <!-- <pre class='construction' figlet font='cyberlarge' text='under construction!'></pre> -->
-    <!-- <pre class='construction' figlet font='cyberlarge'>under construction!</pre> -->
   </body>
 </html>
 
