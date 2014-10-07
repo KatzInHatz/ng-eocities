@@ -8,18 +8,18 @@
 
     <!-- ngEocities Source Files -->
     <!-- scripts:js -->
+    <script src="/blink/blink.module.js"></script>
     <script src="/counter/counter.module.js"></script>
     <script src="/figlet/figlet.module.js"></script>
-    <script src="/flasher/flasher.module.js"></script>
     <script src="/marquee/marquee.module.js"></script>
     <script src="/pixelated-img/pixelated-img.module.js"></script>
     <script src="/sparkler/sparkler.module.js"></script>
     <script src="/ngEocities.js"></script>
+    <script src="/blink/blink.directive.js"></script>
     <script src="/counter/counter.directive.js"></script>
     <script src="/counter/counter.provider.js"></script>
     <script src="/figlet/figlet.directive.js"></script>
     <script src="/figlet/figlify.provider.js"></script>
-    <script src="/flasher/flasher.directive.js"></script>
     <script src="/marquee/marquee.directive.js"></script>
     <script src="/pixelated-img/pixelated-img.directive.js"></script>
     <script src="/sparkler/sparkler.factory.js"></script>
@@ -38,12 +38,12 @@
 
 
     <!-- Flash Directive -->
-    <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='100'>
+    <div class="flash" blink colors="rainbow" active='true' flashtext='true' interval='100'>
       <figlet font='alligator' text='Neo'></figlet>
       <figlet font='alligator' text='Geocities'></figlet>
       <figlet font='alligator' text='ng-eocities'></figlet>
     </div>
-    <div class="flash" flasher colors="blackwhite" active='true' flashtext='true' interval='500'>
+    <div class="flash" blink colors="blackwhite" active='true' flashtext='true' interval='500'>
       <div counter></div>
     </div>
 
@@ -52,7 +52,7 @@
     <input ng-model='fig' type='text' placeholder='figlify some text'>
     <figlet text='{{fig}}' font='alligator'></figlet>
 
-    <div class="flash" flasher colors="rainbow" active='true' flashtext='true' interval='500'>
+    <div class="flash" blink colors="rainbow" active='true' flashtext='true' interval='500'>
       <div marquee width='1000px' align='center' duration='5000'>
         <div counter></div>
       </div>

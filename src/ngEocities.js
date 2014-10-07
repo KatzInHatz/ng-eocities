@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('ngEocities', [
-    'ngEocities.flasher',
+    'ngEocities.blink',
     'ngEocities.pixelated-img',
     'ngEocities.figlet',
     'ngEocities.marquee',
