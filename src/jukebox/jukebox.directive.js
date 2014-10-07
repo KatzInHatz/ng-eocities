@@ -25,6 +25,10 @@
       // Create jukebox
       var jukebox = angular.element(
         ['<canvas height=', height, ' width=', width, '>'].join('"'));
+      jukebox.css({
+        width: 'inherit',
+        height: 'inherit'
+      });
       // ...and initialize its canvas
       var painting = jukebox[0].getContext('2d');
       painting.fillStyle = "rgb(0,0,0)";

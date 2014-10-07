@@ -42,7 +42,7 @@ html:
 ###jukebox
 Bring the party with your own jazzy jukebox. Just plug in some tunes, and trip out to those sweet, sweet visualizations.
 
-bins and fps will default to 32 and 60, respectively. You can interpolate the path to your muzak, but you'll have to escape it, as in the demo. volume can be between 0 and 1.
+bins and fps will default to 32 and 60, respectively. You can interpolate the path to your muzak, but you'll have to escape it, as in the demo. volume can be between 0 and 1. Make sure to use css to change its size.
 
     <jukebox src="/path/to/muzak" volume="1" fps="60" bins="16"></jukebox>
 
