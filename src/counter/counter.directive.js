@@ -5,13 +5,17 @@
   
   .directive('counter', function($firebase, counter) {
     function link(scope, element, attrs) {
-      counter.getFirebaseObject().$bindTo(scope, 'visitor');
+      counter.getFirebaseObject().$loaded().then(function(object) {
+        scope.position = object.count;
+        object.$bindTo(scope, 'visitor');
+      });
     }
   
     return {
       restrict: 'EA',
-      template: '<div>You are visitor {{visitor.count}}</div>',
+      template: '<div>you are visitor {{position}} out of {{visitor.count}}.</div>',
       scope: {
+        'option': '@'
       },
       link: link
     };

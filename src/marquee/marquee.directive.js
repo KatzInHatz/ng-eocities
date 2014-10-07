@@ -7,8 +7,8 @@
   
     function link(scope, element, attrs) {
       var distance, padding, origin, axis, fps, totalFrames;
-
-      angular.element(element).parent().css({
+      
+      angular.element(element).css({
         'display': 'block',
         'width': attrs.width,
         'height': attrs.height,
@@ -16,13 +16,14 @@
         'overflow': 'hidden'
       });
 
-      angular.element(element).css({
+      angular.element(element).find('span').css({
         'display': 'inline-block',
-        'white-space': 'nowrap',
+        'white-space': 'nowrap'
       });
 
       // initialize default values
-      distance = '100%';
+      scope.duration = scope.duration || 1000;
+      distance = attrs.width;
       padding = 'padding-left';
       axis = 'X';
       origin = '-';
@@ -35,7 +36,7 @@
 
       if (scope.direction === 'right' || scope.direction === 'down') origin = -100;
 
-      angular.element(element).css(padding, distance);
+      angular.element(element).find('span').css(padding, distance);
   
       fps = 1000 / 60; // 60 frames per second
       totalFrames = scope.duration / fps;
@@ -46,7 +47,7 @@
   
         $timeout(function animate() {
           percentage = (frames / totalFrames) * 100;
-          angular.element(element).css({
+          angular.element(element).find('span').css({
             'transform': 'translate' + axis + '(' + (origin + percentage) + '%)'
           });
           ++frames <= totalFrames ? $timeout(animate, fps) : loop(fps, origin, axis);
@@ -58,7 +59,7 @@
   
     return {
       restrict: 'EA',
-      template: '<div><div ng-transclude></div></div>',
+      template: '<div><span ng-transclude></span></div>',
       transclude: true,
       scope: {
         duration: '@',

@@ -36,29 +36,185 @@
   </head>
   <body ng-controller="myController">
 
-
-    <!-- Flash Directive -->
-    <div class="flash" blink option='rainbow' active='true' flashtext='true' interval='100'>
-      <figlet font='alligator' text='Neo'></figlet>
-      <figlet font='alligator' text='Geocities'></figlet>
-      <figlet font='alligator' text='ng-eocities'></figlet>
+    <div marquee width='1000px' duration='5000' style="margin: auto;">
+      <figlet text='welcome to ng-eocities!!' font='isometric3'></figlet>
     </div>
-    <div class="flash" blink option="blackwhite" active='true' flashtext='true' interval='500'>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <figlet text='<figlet>' font='larry3d'></figlet>
+    <p>allows you to convert any text to a figlet font.</p>
+    <figlet text='{{fig}}' font='smkeyboard'></figlet>
+    <input ng-model='fig' type='text' placeholder='figlify some text' />
+
+    <p>example:</p>
+    <pre>
+      app.config(function(figlifyProvider) {
+        // set the path to your figlet fonts
+        figlifyProvider.setFontsRoute('/figlet/fonts/');
+      });
+
+      &#60;figlet text='<code ng-non-bindable>{{model}}</code>' font='smkeyboard'&#62;&#60;/figlet&#62;
+      &#60;input ng-model='model' type='text' placeholder='figlify some text' /&#62;
+    </pre>
+
+    <figlet text='<pixelated-img>' font='larry3d'></figlet>
+    <p>allows you to pixelate an image.</p>
+    <div pixelated-img source="http://www.neowin.net/forum/uploads/post-59416-1105987532.jpg" pixelation="{{pixelation}}"></div>
+    <input type="range" min="1" max="100" ng-model="pixelation" /></div>
+    <p>example:</p>
+    <pre>
+
+      &#60;div pixelated-img source="<code ng-non-bindable>{{image}}</code>" pixelation="<code ng-non-bindable>{{pixelation}}</code>"&#62;&#60;/div&#62;
+      &#60;input type="range" min="1" max="100" ng-model="pixelation" /&#62;&#60;/div&#62;
+    </pre>
+
+    <div marquee width='800px' duration='5000' direction='right'>
+      <figlet text='<marquee>' font='larry3d'></figlet>
+    </div>
+    <p>creates a marquee of any size in any direction.</p>
+    <pre style="display: inline-block">
+             _____
+            |     |
+         ___|  ^  |___ 
+        |             |
+        | <         > |
+        |___       ___|
+            |  v  |
+            |_____|
+    </pre>
+    <div style="display: inline-block;">
+      <div marquee width='40px' height='1em' duration='1500' direction='up' style="position: relative; top: -5em; left: -4.5em">up</div>
+      <div marquee width='40px' height='1em' duration='1500' direction='left' style="position: relative; top: -1.5em; left: -10.5em">left</div>
+      <div marquee width='40px' height='1em' duration='1500' direction='right' style="position: relative; top: -2.5em;">right</div>
+      <div marquee width='40px' height='1em' duration='1500' direction='down' style="position: relative; top: 1em; left: -5em">down</div>
+    </div>
+
+    <div marquee width='800px' duration='4000' direction="right" style="margin: auto; float: right; position: relative; left: -18em">
+      <figlet text="Kawww!!" font='alligator' style="display: inline-block;"></figlet>
+      <pre style="display: inline-block;">
+        ((
+        \\``.
+        \_`.``-. 
+        ( `.`.` `._  
+         `._`-.    `._ 
+           \`--.   ,' `. 
+            `--._  `.  .`. 
+             `--.--- `. ` `. 
+                 `.--  `;  .`._ 
+                   :-   :   ;. `.__,.,__ __ 
+                    `\  :       ,-(     ';o`>.
+                      `-.`:   ,'   `._ .:  (,-`,
+                         \    ;      ;.  ,: 
+                     ,"`-._>-:        ;,'  `---.,---.
+                     `>'"  "-`       ,'   "":::::".. `-.
+                      `;"'_,  (\`\ _ `:::::::::::'"     `---.
+                       `-(_,' -'),)\`.       _      .::::"'  `----._,-"")
+                           \_,': `.-' `-----' `--;-.   `.   ``.`--.____/ 
+                             `-^--'                \(-.  `.``-.`-=:-.__)
+                                                    `  `.`.`._`.-._`--.)
+                                                         `-^---^--.`--
+      </pre>
+    </div>
+    <div style="clear: both;">
+    <p>example:</p>
+    <pre>
+      &#60;div marquee width='1000px' duration='3000' direction="right" style="margin: auto;"&#62;
+        &#60;figlet text="Kawww!!" font='alligator'&#62;&#60;/figlet&#62;
+      &#60;/div&#62;
+    </pre>
+    <div blink active='true' flashtext='true' interval='500' style='float:left;'>
+      <figlet text='<blink>' font='larry3d'></figlet>
+    </div>
+    <div style="clear: both;"></div>
+    <p>makes your text flash.</p>
+
+    <div blink option="rainbow" active='true' flashtext='true' interval='100' style='float:left;'>
+      <pre style="display: inline-block;">
+  ,-""-.                  ,-""-.
+ / ,--. \                / ,--. \
+| ( () ) |              | ( () ) |
+ \ `--' /                \ `--' /
+  `-..-' staring contest! `-..-'
+      </pre>
+    </div>
+    <div style="clear: both;"></div>
+    <p>example:</p>
+    <pre>
+      &#60;div blink option="rainbow" active='true' flashtext='true' interval='100' style='float:left;'&#62;don't  blink&#60;/div&#62;
+    </pre>
+
+    <figlet text='<counter>' font='larry3d'></figlet>
+    <p>uses firebase to create a real time visitor counter.</p>
+    <div blink option="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
       <div counter></div>
     </div>
+    <div style="clear: both;">
+    <p>example:</p>
+    <pre>
+      app.config(function(counterProvider) {
+        // point counter to your firebase count url
+        counterProvider.setFirebaseURL('https://ng-eocities.firebaseio.com/');
+      });
 
-    <!-- Pixelated-Img Directive -->
-    <pixelated-img src="http://petitecurie.com/wp-content/uploads/2014/03/cat8.jpg" pixelation='10'></pixelated-img>
-    <input ng-model='fig' type='text' placeholder='figlify some text'>
-    <figlet text='{{fig}}' font='alligator'></figlet>
+      &#60;div counter&#62;&#60;/div&#62;
+    </pre>
 
-    <div class="flash" blink option="rainbow" active='true' flashtext='true' interval='500'>
-      <div marquee width='1000px' align='center' duration='5000'>
-        <div counter></div>
-      </div>
+    <div blink option='rainbow' active='true' flashtext='true' interval='100' style='float:left;'>
+      <figlet text='sparkler' font='larry3d'></figlet>
     </div>
+    <div style="clear: both;">
+    <p>makes your cursor sparkly.</p>
+    <p>example:</p>
+    <pre>
+      app.run(function(sparkler) {
+        sparkler();
+      });
+    </pre>
 
-    <pre class='construction' figlet font='cyberlarge' text='under construction!'></pre>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div style='width: 1150px; margin: auto;'>
+      <figlet class='construction' text='this site is' font='cyberlarge' style='display: block;'></figlet>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      <figlet class='construction' text='under construction!' font='cyberlarge' style='display: block;'></figlet>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div blink option="blackwhite" active='true' flashtext='true' interval='500' style='float:left;'>
+      <div counter></div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+
   </body>
 </html>
 
