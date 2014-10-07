@@ -3,7 +3,7 @@
 A library of retro Angular directives
 v0.0.0
 
-[Demo](http://www.ng-eocities.com/)
+[Demo](http://www.ng-eocities.com/) - polarized lenses recommended
 
 ##Installation
 ```bower install ng-eocities```
