@@ -1,9 +1,9 @@
 (function(angular){
-  angular.module('ngEocities.flasher')
-  .directive('flasher', flasher);
+  angular.module('ngEocities.blink')
+  .directive('blink', blink);
 
   /*@inject*/
-  function flasher($timeout){
+  function blink($timeout){
     return {
       restrict: 'EA',
       template: '<div ng-transclude></div>',
