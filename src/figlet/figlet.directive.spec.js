@@ -19,10 +19,10 @@ describe('Unit: Figlet', function(){
   beforeEach(inject(function($rootScope, $compile){
     scope = $rootScope.$new();
     element = '<div figlet font="alligator" text="Hello"></div>';
+
+    //compile element and initiate digest loop
     element = $compile(element)(scope);
-
     scope.$digest();
-
   }));
 
   it('should call figlify.figlify with cb, and use result in pre tag', function(){
