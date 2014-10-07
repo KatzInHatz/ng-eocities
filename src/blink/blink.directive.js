@@ -21,17 +21,17 @@
           simple: [0, 1]
         };
 
-        console.log('scope.option: ', scope.option);
-
         scope.current = 0;
-        scope.option    = scope.options[scope.option] ? scope.option : 'simple';
+        scope.option    = scope.option === undefined ? 'simple' : scope.option;
+        scope.option = 'simple';
         scope.flashtext = scope.flashtext || false;
         scope.active    = scope.active    || false;
         scope.interval  = scope.interval !== undefined ? scope.interval: 500;
         scope.flash     = flash;
 
         scope.$watch('active', function(newValue, oldValue) {
-          scope.active = newValue;
+          scope.active    = newValue;
+          scope.option    = scope.option === undefined ? 'simple' : scope.option;
           if (scope.active) scope.flash();
         });
 
@@ -39,7 +39,6 @@
           var length, fontColor, property;
           property = scope.option === 'simple' ? 'opacity': 'background-color';
           if (scope.active){
-            console.log('property is: ', property);
             ele.css(property, scope.options[scope.option][scope.current]);
             length = scope.options[scope.option].length;
             if ( scope.flashtext ){
