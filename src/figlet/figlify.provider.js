@@ -18,7 +18,6 @@
         };
 
         function figlify(text, font, callback){
-          console.log('inside figlify');
           write(text, font, callback);
         }
 
@@ -37,7 +36,6 @@
             fn();
             return;
           }
-          
           loadFont(name, function(defn) {
             _parseFont(name, defn, fn);
           });
@@ -92,7 +90,6 @@
               }
               result += "\n";
             }
-            console.log(result);
             fn(result);
           });
         }
