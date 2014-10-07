@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "homepage": "https://github.com/KatzInHatz/ng-eocities",
   "authors": [
-    "(Aaron Ward <aaromp@gmail.com>)",
-    "(John Doty <jrhdoty@gmail.com>)"
+    "Aaron Ward <aaromp@gmail.com>",
+    "John Doty <jrhdoty@gmail.com>", 
+    "Zach Pomerantz <zmp@umich.edu>", 
   ],
   "description": "Let's party like it's 1999!",
   "keywords": [
@@ -19,7 +20,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
+    "bower_components"
   ],
   "dependencies": {
     "angular": "~1.2.25",
