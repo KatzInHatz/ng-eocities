@@ -5,7 +5,7 @@
   "authors": [
     "Aaron Ward <aaromp@gmail.com>",
     "John Doty <jrhdoty@gmail.com>", 
-    "Zach Pomerantz <zmp@umich.edu>", 
+    "Zach Pomerantz <zmp@umich.edu>"
   ],
   "description": "Let's party like it's 1999!",
   "keywords": [
@@ -23,7 +23,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "angular": "~1.2.25",
+    "angular": "~1.2.25"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.26"
