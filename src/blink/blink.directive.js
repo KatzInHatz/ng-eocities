@@ -9,18 +9,18 @@
       template: '<div ng-transclude></div>',
       transclude: true,
       scope: {
-        active: '='
+        active: '@',
+        flashtext: '@'
       },
       link: function(scope, ele, attrs){
-        var current, selection, options;
-        
         scope.options = {
           rainbow: ['red', 'orange', 'yellow', 'green', 'blue', 'purple'],
           blackwhite: ['black', 'white']};
         scope.selection = scope.options[attrs.colors];
         scope.current = 0;
-        scope.flashText = attrs.flashtext;
-        scope.flash = flash;
+        scope.flashtext = scope.flashtext || false;
+        scope.active    = scope.active || false;
+        scope.flash     = flash;
 
         scope.$watch('active', function(newValue, oldValue) {
           scope.active = newValue;
@@ -30,7 +30,7 @@
         function flash(){
           if (scope.active){
             ele.css('background-color', scope.selection[scope.current]);
-            if ( scope.flashText ){
+            if ( scope.flashtext ){
               var fontColor = attrs.colors === 'rainbow' ? 
                 scope.selection[(scope.current+3)%6] :
                 scope.selection[(scope.current+1)%2];
