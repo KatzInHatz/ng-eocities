@@ -33,6 +33,7 @@ gulp.task('minify', function(){
     .pipe(gulp.dest(paths.dist));
 });
 
+//annotate dependencies so don't need explicit array syntax
 gulp.task('preMin', ['minify'], function(){
   return gulp.src('./dist/ngEocities.min.js')
     .pipe($.ngAnnotate())
@@ -86,6 +87,7 @@ gulp.task('server', ['inject', 'watch'], function(){
   server.run();
 });
 
+//serve app and open in browser
 gulp.task('serve', ['server'], function(){
   var options = {
     url: 'http://localhost:9000',
@@ -94,6 +96,7 @@ gulp.task('serve', ['server'], function(){
     .pipe($.open('', options));
 });
 
+//run tests once
 gulp.task('test', function(done){
   karma.start({
     configFile: __dirname + '/karma.conf.js',
@@ -101,6 +104,7 @@ gulp.task('test', function(done){
   }, done);
 });
 
+//run tests on every file update
 gulp.task('tdd', function(done){
   karma.start({
     configFile: __dirname + '/karma.conf.js',
