@@ -18,9 +18,9 @@ All directives and their dependencies have their own module and can be used indi
     angular.module('myApp' ['ngEocities']);
 
 ###pixelated-img
-Tired of the razer sharp images of the modern web?  Pixelate down that fidelity to your heart's content!
+Tired of the razor-sharp images of the modern web?  Pixelate down that fidelity to your heart's content!
 
-source and pixelation values are tied to scope
+`source` and `pixelation` values are tied to scope
 
     <div pixelated-img source="{{image}}" pixelation="{{pixelation}}"></div>
     <input type="range" min="1" max="100" ng-model="pixelation" /></div>
@@ -29,6 +29,7 @@ source and pixelation values are tied to scope
 Add some pizzazz to your text by figlifying it up.  This is a port of [scottgonzalez's figlet-js](https://github.com/scottgonzalez/figlet-js).
 
 app:
+
     app.config(function(figlifyProvider) {
         // set the path to your figlet fonts
         figlifyProvider.setFontsRoute('/figlet/fonts/');
@@ -42,19 +43,19 @@ html:
 ###jukebox
 Bring the party with your own jazzy jukebox. Just plug in some tunes, and trip out to those sweet, sweet visualizations.
 
-bins and fps will default to 32 and 60, respectively. You can interpolate the path to your muzak, but you'll have to escape it, as in the demo. volume can be between 0 and 1. Make sure to use css to change its size.
+`bins` and `fps` will default to 32 and 60, respectively. You can interpolate the path to your muzak, but you'll have to escape it, as in the demo. `volume` can be between 0 and 1. Make sure to use CSS to change its size.
 
     <jukebox src="/path/to/muzak" volume="1" fps="60" bins="16"></jukebox>
 
 ###marquee
-Don't let deprecation slow you down, get those marquee's out of your legacy code and into mobile website.
+Don't let deprecation slow you down, get those marquees out of your legacy code and into your mobile website.
 
     <div marquee width='100px' duration='3000' direction="right">
         <figlet text="Vrooom!!" font='alligator'></figlet>
     </div>
 
 ###blink
-Don't blink, or you'll miss it!  Just kidding, try to avoid having a \<blink\> induced seizure.
+Don't blink, or you'll miss it!  Just kidding, try to avoid having a \<blink\>-induced seizure.
 
 ```options: 'blackwhite', 'rainbow'```
 
