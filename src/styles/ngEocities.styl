@@ -20,6 +20,31 @@ body, a, a:hover
   height scrollbarSize
   background-color scrollbarColor
 
+@-webkit-keyframes slide {
+    from{
+        background-position:0px;
+    }
+    to{
+        background-position:800px;
+    }
+}
+
+.ngEocities-construction
+  background: repeating-linear-gradient(
+    -43deg,
+    #000,
+    #111 20px,
+    #ff3 20px,
+    #ff0 40px
+  )
+  color: #000
+  -webkit-animation: slide 15s linear infinite
+  padding: 8px 0px 8px 0px
+
+.ngEocities-construction > div
+  background-color: #ff0
+  padding: 5px 0px 5px 0px
+
 .construction
   display inline-block
   position absolute

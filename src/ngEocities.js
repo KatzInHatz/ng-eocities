@@ -9,6 +9,7 @@
     'ngEocities.counter',
     'ngEocities.sparkler',
     'ngEocities.jukebox',
+    'ngEocities.construction',
     'firebase'
   ]);
 }(angular));
