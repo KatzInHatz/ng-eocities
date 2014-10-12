@@ -13,7 +13,7 @@
       transclude: true,
       template: 
         '<div class="ngEocities-construction">' +
-          '<div style="background-color: #ff0; padding: 5px 0px 5px 0px" ng-transclude></div>' +
+          '<div ng-transclude></div>' +
         '</div>',
       scope: {},
       link: link
