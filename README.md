@@ -82,6 +82,11 @@ Because who said a mouse should look like a black arrow anyway?
         sparkler();
     });
 
+###construction
+Make sure visitors know that your site is a work in progress.
+
+    <construction>Pardon the mess!</construction>
+
 ##Backlog
 ####draggable
 

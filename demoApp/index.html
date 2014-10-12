@@ -9,6 +9,7 @@
     <!-- ngEocities Source Files -->
     <!-- scripts:js -->
     <script src="/blink/blink.module.js"></script>
+    <script src="/construction/construction.module.js"></script>
     <script src="/counter/counter.module.js"></script>
     <script src="/figlet/figlet.module.js"></script>
     <script src="/jukebox/jukebox.module.js"></script>
@@ -16,13 +17,14 @@
     <script src="/pixelated-img/pixelated-img.module.js"></script>
     <script src="/sparkler/sparkler.module.js"></script>
     <script src="/ngEocities.js"></script>
+    <script src="/blink/blink.directive.js"></script>
+    <script src="/construction/construction.directive.js"></script>
     <script src="/counter/counter.directive.js"></script>
     <script src="/counter/counter.provider.js"></script>
     <script src="/figlet/figlet.directive.js"></script>
     <script src="/figlet/figlify.provider.js"></script>
     <script src="/jukebox/jukebox.directive.js"></script>
     <script src="/marquee/marquee.directive.js"></script>
-    <script src="/blink/blink.directive.js"></script>
     <script src="/pixelated-img/pixelated-img.directive.js"></script>
     <script src="/sparkler/sparkler.factory.js"></script>
     <!-- endinject -->
@@ -195,16 +197,20 @@
     <br/>
     <br/>
     <br/>
-    <div style='width: 1150px; margin: auto;'>
-      <figlet class='construction' text='this site is' font='cyberlarge' style='display: block;'></figlet>
+
+    <figlet text='<construction>' font='larry3d'></figlet>
+    <div style="width: 900px">
+      <construction>
         <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-      <figlet class='construction' text='under construction!' font='cyberlarge' style='display: block;'></figlet>
+        <span>This site is...</span>
+        <figlet text='under construction!' font='cybermedium'></figlet>
+      </construction>
     </div>
+    <p>make an under construction warning</p>
+    <p>example:</p>
+    <pre>
+      &#60;construction&#62;pardon the mess!&#60;/construction&#62;
+    </pre>
     <br/>
     <br/>
     <br/>
